@@ -1,0 +1,458 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		232601C41456EE0300A42BC0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232601C31456EE0300A42BC0 /* UIKit.framework */; };
+		232601C61456EE0300A42BC0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232601C51456EE0300A42BC0 /* Foundation.framework */; };
+		232601C81456EE0300A42BC0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232601C71456EE0300A42BC0 /* CoreGraphics.framework */; };
+		232601CE1456EE0300A42BC0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 232601CC1456EE0300A42BC0 /* InfoPlist.strings */; };
+		232601D11456EE0300A42BC0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 232601D01456EE0300A42BC0 /* main.m */; };
+		232601D41456EE0300A42BC0 /* nakuronAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 232601D31456EE0300A42BC0 /* nakuronAppDelegate.m */; };
+		232601D71456EE0300A42BC0 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 232601D51456EE0300A42BC0 /* MainWindow.xib */; };
+		232601DA1456EE0300A42BC0 /* nakuronViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 232601D91456EE0300A42BC0 /* nakuronViewController.m */; };
+		232601DD1456EE0300A42BC0 /* nakuronViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 232601DB1456EE0300A42BC0 /* nakuronViewController.xib */; };
+		232601E41456EE0300A42BC0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232601C31456EE0300A42BC0 /* UIKit.framework */; };
+		232601E51456EE0300A42BC0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232601C51456EE0300A42BC0 /* Foundation.framework */; };
+		232601E61456EE0300A42BC0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232601C71456EE0300A42BC0 /* CoreGraphics.framework */; };
+		232601EE1456EE0300A42BC0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 232601EC1456EE0300A42BC0 /* InfoPlist.strings */; };
+		232601F11456EE0300A42BC0 /* nakuronTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 232601F01456EE0300A42BC0 /* nakuronTests.h */; };
+		232601F31456EE0300A42BC0 /* nakuronTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 232601F21456EE0300A42BC0 /* nakuronTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		232601E71456EE0300A42BC0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 232601B61456EE0200A42BC0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 232601BE1456EE0200A42BC0;
+			remoteInfo = nakuron;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		232601BF1456EE0300A42BC0 /* nakuron.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nakuron.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		232601C31456EE0300A42BC0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		232601C51456EE0300A42BC0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		232601C71456EE0300A42BC0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		232601CB1456EE0300A42BC0 /* nakuron-Info.plist */ = {isa = PBXFileReference; path = "nakuron-Info.plist"; sourceTree = "<group>"; };
+		232601CD1456EE0300A42BC0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		232601CF1456EE0300A42BC0 /* nakuron-Prefix.pch */ = {isa = PBXFileReference; path = "nakuron-Prefix.pch"; sourceTree = "<group>"; };
+		232601D01456EE0300A42BC0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		232601D21456EE0300A42BC0 /* nakuronAppDelegate.h */ = {isa = PBXFileReference; path = nakuronAppDelegate.h; sourceTree = "<group>"; };
+		232601D31456EE0300A42BC0 /* nakuronAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nakuronAppDelegate.m; sourceTree = "<group>"; };
+		232601D61456EE0300A42BC0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		232601D81456EE0300A42BC0 /* nakuronViewController.h */ = {isa = PBXFileReference; path = nakuronViewController.h; sourceTree = "<group>"; };
+		232601D91456EE0300A42BC0 /* nakuronViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nakuronViewController.m; sourceTree = "<group>"; };
+		232601DC1456EE0300A42BC0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/nakuronViewController.xib; sourceTree = "<group>"; };
+		232601E31456EE0300A42BC0 /* nakuronTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nakuronTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		232601EB1456EE0300A42BC0 /* nakuronTests-Info.plist */ = {isa = PBXFileReference; path = "nakuronTests-Info.plist"; sourceTree = "<group>"; };
+		232601ED1456EE0300A42BC0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		232601EF1456EE0300A42BC0 /* nakuronTests-Prefix.pch */ = {isa = PBXFileReference; path = "nakuronTests-Prefix.pch"; sourceTree = "<group>"; };
+		232601F01456EE0300A42BC0 /* nakuronTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nakuronTests.h; sourceTree = "<group>"; };
+		232601F21456EE0300A42BC0 /* nakuronTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nakuronTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		232601BC1456EE0200A42BC0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				232601C41456EE0300A42BC0 /* UIKit.framework in Frameworks */,
+				232601C61456EE0300A42BC0 /* Foundation.framework in Frameworks */,
+				232601C81456EE0300A42BC0 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		232601DF1456EE0300A42BC0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				232601E41456EE0300A42BC0 /* UIKit.framework in Frameworks */,
+				232601E51456EE0300A42BC0 /* Foundation.framework in Frameworks */,
+				232601E61456EE0300A42BC0 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		232601B41456EE0200A42BC0 = {
+			isa = PBXGroup;
+			children = (
+				232601C91456EE0300A42BC0 /* nakuron */,
+				232601E91456EE0300A42BC0 /* nakuronTests */,
+				232601C21456EE0300A42BC0 /* Frameworks */,
+				232601C01456EE0300A42BC0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		232601C01456EE0300A42BC0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				232601BF1456EE0300A42BC0 /* nakuron.app */,
+				232601E31456EE0300A42BC0 /* nakuronTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		232601C21456EE0300A42BC0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				232601C31456EE0300A42BC0 /* UIKit.framework */,
+				232601C51456EE0300A42BC0 /* Foundation.framework */,
+				232601C71456EE0300A42BC0 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		232601C91456EE0300A42BC0 /* nakuron */ = {
+			isa = PBXGroup;
+			children = (
+				232601D21456EE0300A42BC0 /* nakuronAppDelegate.h */,
+				232601D31456EE0300A42BC0 /* nakuronAppDelegate.m */,
+				232601D51456EE0300A42BC0 /* MainWindow.xib */,
+				232601D81456EE0300A42BC0 /* nakuronViewController.h */,
+				232601D91456EE0300A42BC0 /* nakuronViewController.m */,
+				232601DB1456EE0300A42BC0 /* nakuronViewController.xib */,
+				232601CA1456EE0300A42BC0 /* Supporting Files */,
+			);
+			path = nakuron;
+			sourceTree = "<group>";
+		};
+		232601CA1456EE0300A42BC0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				232601CB1456EE0300A42BC0 /* nakuron-Info.plist */,
+				232601CC1456EE0300A42BC0 /* InfoPlist.strings */,
+				232601CF1456EE0300A42BC0 /* nakuron-Prefix.pch */,
+				232601D01456EE0300A42BC0 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		232601E91456EE0300A42BC0 /* nakuronTests */ = {
+			isa = PBXGroup;
+			children = (
+				232601F01456EE0300A42BC0 /* nakuronTests.h */,
+				232601F21456EE0300A42BC0 /* nakuronTests.m */,
+				232601EA1456EE0300A42BC0 /* Supporting Files */,
+			);
+			path = nakuronTests;
+			sourceTree = "<group>";
+		};
+		232601EA1456EE0300A42BC0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				232601EB1456EE0300A42BC0 /* nakuronTests-Info.plist */,
+				232601EC1456EE0300A42BC0 /* InfoPlist.strings */,
+				232601EF1456EE0300A42BC0 /* nakuronTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		232601BE1456EE0200A42BC0 /* nakuron */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 232601F61456EE0300A42BC0 /* Build configuration list for PBXNativeTarget "nakuron" */;
+			buildPhases = (
+				232601BB1456EE0200A42BC0 /* Sources */,
+				232601BC1456EE0200A42BC0 /* Frameworks */,
+				232601BD1456EE0200A42BC0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = nakuron;
+			productName = nakuron;
+			productReference = 232601BF1456EE0300A42BC0 /* nakuron.app */;
+			productType = "com.apple.product-type.application";
+		};
+		232601E21456EE0300A42BC0 /* nakuronTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 232601F91456EE0300A42BC0 /* Build configuration list for PBXNativeTarget "nakuronTests" */;
+			buildPhases = (
+				232601DE1456EE0300A42BC0 /* Sources */,
+				232601DF1456EE0300A42BC0 /* Frameworks */,
+				232601E01456EE0300A42BC0 /* Resources */,
+				232601E11456EE0300A42BC0 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				232601E81456EE0300A42BC0 /* PBXTargetDependency */,
+			);
+			name = nakuronTests;
+			productName = nakuronTests;
+			productReference = 232601E31456EE0300A42BC0 /* nakuronTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		232601B61456EE0200A42BC0 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 232601B91456EE0200A42BC0 /* Build configuration list for PBXProject "nakuron" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 232601B41456EE0200A42BC0;
+			productRefGroup = 232601C01456EE0300A42BC0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				232601BE1456EE0200A42BC0 /* nakuron */,
+				232601E21456EE0300A42BC0 /* nakuronTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		232601BD1456EE0200A42BC0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				232601CE1456EE0300A42BC0 /* InfoPlist.strings in Resources */,
+				232601D71456EE0300A42BC0 /* MainWindow.xib in Resources */,
+				232601DD1456EE0300A42BC0 /* nakuronViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		232601E01456EE0300A42BC0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				232601EE1456EE0300A42BC0 /* InfoPlist.strings in Resources */,
+				232601F11456EE0300A42BC0 /* nakuronTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		232601E11456EE0300A42BC0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		232601BB1456EE0200A42BC0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				232601D11456EE0300A42BC0 /* main.m in Sources */,
+				232601D41456EE0300A42BC0 /* nakuronAppDelegate.m in Sources */,
+				232601DA1456EE0300A42BC0 /* nakuronViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		232601DE1456EE0300A42BC0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				232601F31456EE0300A42BC0 /* nakuronTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		232601E81456EE0300A42BC0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 232601BE1456EE0200A42BC0 /* nakuron */;
+			targetProxy = 232601E71456EE0300A42BC0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		232601CC1456EE0300A42BC0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				232601CD1456EE0300A42BC0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		232601D51456EE0300A42BC0 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				232601D61456EE0300A42BC0 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		232601DB1456EE0300A42BC0 /* nakuronViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				232601DC1456EE0300A42BC0 /* en */,
+			);
+			name = nakuronViewController.xib;
+			sourceTree = "<group>";
+		};
+		232601EC1456EE0300A42BC0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				232601ED1456EE0300A42BC0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		232601F41456EE0300A42BC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		232601F51456EE0300A42BC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		232601F71456EE0300A42BC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "nakuron/nakuron-Prefix.pch";
+				INFOPLIST_FILE = "nakuron/nakuron-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		232601F81456EE0300A42BC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "nakuron/nakuron-Prefix.pch";
+				INFOPLIST_FILE = "nakuron/nakuron-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		232601FA1456EE0300A42BC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/nakuron.app/nakuron";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "nakuronTests/nakuronTests-Prefix.pch";
+				INFOPLIST_FILE = "nakuronTests/nakuronTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		232601FB1456EE0300A42BC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/nakuron.app/nakuron";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "nakuronTests/nakuronTests-Prefix.pch";
+				INFOPLIST_FILE = "nakuronTests/nakuronTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		232601B91456EE0200A42BC0 /* Build configuration list for PBXProject "nakuron" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				232601F41456EE0300A42BC0 /* Debug */,
+				232601F51456EE0300A42BC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		232601F61456EE0300A42BC0 /* Build configuration list for PBXNativeTarget "nakuron" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				232601F71456EE0300A42BC0 /* Debug */,
+				232601F81456EE0300A42BC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		232601F91456EE0300A42BC0 /* Build configuration list for PBXNativeTarget "nakuronTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				232601FA1456EE0300A42BC0 /* Debug */,
+				232601FB1456EE0300A42BC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 232601B61456EE0200A42BC0 /* Project object */;
+}
