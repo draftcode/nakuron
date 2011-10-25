@@ -39,20 +39,20 @@
 		232601C31456EE0300A42BC0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		232601C51456EE0300A42BC0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		232601C71456EE0300A42BC0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		232601CB1456EE0300A42BC0 /* nakuron-Info.plist */ = {isa = PBXFileReference; path = "nakuron-Info.plist"; sourceTree = "<group>"; };
+		232601CB1456EE0300A42BC0 /* nakuron-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "nakuron-Info.plist"; sourceTree = "<group>"; };
 		232601CD1456EE0300A42BC0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		232601CF1456EE0300A42BC0 /* nakuron-Prefix.pch */ = {isa = PBXFileReference; path = "nakuron-Prefix.pch"; sourceTree = "<group>"; };
+		232601CF1456EE0300A42BC0 /* nakuron-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "nakuron-Prefix.pch"; sourceTree = "<group>"; };
 		232601D01456EE0300A42BC0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		232601D21456EE0300A42BC0 /* nakuronAppDelegate.h */ = {isa = PBXFileReference; path = nakuronAppDelegate.h; sourceTree = "<group>"; };
+		232601D21456EE0300A42BC0 /* nakuronAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nakuronAppDelegate.h; sourceTree = "<group>"; };
 		232601D31456EE0300A42BC0 /* nakuronAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nakuronAppDelegate.m; sourceTree = "<group>"; };
 		232601D61456EE0300A42BC0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		232601D81456EE0300A42BC0 /* nakuronViewController.h */ = {isa = PBXFileReference; path = nakuronViewController.h; sourceTree = "<group>"; };
+		232601D81456EE0300A42BC0 /* nakuronViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nakuronViewController.h; sourceTree = "<group>"; };
 		232601D91456EE0300A42BC0 /* nakuronViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nakuronViewController.m; sourceTree = "<group>"; };
 		232601DC1456EE0300A42BC0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/nakuronViewController.xib; sourceTree = "<group>"; };
 		232601E31456EE0300A42BC0 /* nakuronTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nakuronTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		232601EB1456EE0300A42BC0 /* nakuronTests-Info.plist */ = {isa = PBXFileReference; path = "nakuronTests-Info.plist"; sourceTree = "<group>"; };
+		232601EB1456EE0300A42BC0 /* nakuronTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "nakuronTests-Info.plist"; sourceTree = "<group>"; };
 		232601ED1456EE0300A42BC0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		232601EF1456EE0300A42BC0 /* nakuronTests-Prefix.pch */ = {isa = PBXFileReference; path = "nakuronTests-Prefix.pch"; sourceTree = "<group>"; };
+		232601EF1456EE0300A42BC0 /* nakuronTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "nakuronTests-Prefix.pch"; sourceTree = "<group>"; };
 		232601F01456EE0300A42BC0 /* nakuronTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nakuronTests.h; sourceTree = "<group>"; };
 		232601F21456EE0300A42BC0 /* nakuronTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nakuronTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
