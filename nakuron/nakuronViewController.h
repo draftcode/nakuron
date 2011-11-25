@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "Board.h"
+#import "Square.h"
+#import "Ball.h"
+#import "ColorBall.h"
+
 @interface nakuronViewController : UIViewController {
 }
 
