@@ -49,12 +49,17 @@ static nakuronViewController *instance = nil;
     // まず空のマスを描画
     for (int i = 1; i <= [[display getBoard] getBoardSize]; i++) {
         for (int j = 1; j <= [[display getBoard] getBoardSize]; j++) {
-            UIImage *img = [UIImage imageNamed:@"sempty.png"];
-            UIImageView *imgv = [[UIImageView alloc] 
+            UIImageView *imgs = [[UIImageView alloc] 
                                  initWithFrame:[[display getBoard] 
                                                 getCoordWithCell:i cell_y:j]];
-            imgv.image = img;
-            [self.view addSubview:imgv];
+            imgs.image = [UIImage imageNamed:@"sempty.png"];
+            [self.view addSubview:imgs];
+            
+            UIImageView *imgc = [[UIImageView alloc] 
+                                 initWithFrame:[[display getBoard] 
+                                                getCoordWithCell:i cell_y:j]];
+            imgc.image = [UIImage imageNamed:@"cblue.png"];
+            [self.view addSubview:imgc];
         }
     }
 }
