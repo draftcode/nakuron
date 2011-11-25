@@ -23,7 +23,6 @@
 		232601F11456EE0300A42BC0 /* nakuronTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 232601F01456EE0300A42BC0 /* nakuronTests.h */; };
 		232601F31456EE0300A42BC0 /* nakuronTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 232601F21456EE0300A42BC0 /* nakuronTests.m */; };
 		237CC17D147FE89400486081 /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = 237CC17C147FE89400486081 /* Board.m */; };
-		237CC1C7148018DC00486081 /* Square.m in Sources */ = {isa = PBXBuildFile; fileRef = 237CC1C6148018DC00486081 /* Square.m */; };
 		237CC1CA1480195000486081 /* Ball.m in Sources */ = {isa = PBXBuildFile; fileRef = 237CC1C91480195000486081 /* Ball.m */; };
 		237CC1CD148019B400486081 /* ColorBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 237CC1CC148019B400486081 /* ColorBall.m */; };
 		237CC1D314801D2900486081 /* Wall.m in Sources */ = {isa = PBXBuildFile; fileRef = 237CC1D214801D2900486081 /* Wall.m */; };
@@ -37,6 +36,8 @@
 		237CC1E61480216E00486081 /* cgreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 237CC1DD1480216D00486081 /* cgreen.png */; };
 		237CC1E71480216E00486081 /* cred.png in Resources */ = {isa = PBXBuildFile; fileRef = 237CC1DE1480216D00486081 /* cred.png */; };
 		237CC1E81480216E00486081 /* cyellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 237CC1DF1480216D00486081 /* cyellow.png */; };
+		237CC1EB148034DF00486081 /* Display.m in Sources */ = {isa = PBXBuildFile; fileRef = 237CC1EA148034DF00486081 /* Display.m */; };
+		237CC1ED1480364D00486081 /* sempty.png in Resources */ = {isa = PBXBuildFile; fileRef = 237CC1EC1480364D00486081 /* sempty.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,8 +73,6 @@
 		232601F21456EE0300A42BC0 /* nakuronTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nakuronTests.m; sourceTree = "<group>"; };
 		237CC17B147FE89400486081 /* Board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
 		237CC17C147FE89400486081 /* Board.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Board.m; sourceTree = "<group>"; };
-		237CC1C5148018DC00486081 /* Square.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Square.h; sourceTree = "<group>"; };
-		237CC1C6148018DC00486081 /* Square.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Square.m; sourceTree = "<group>"; };
 		237CC1C81480195000486081 /* Ball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
 		237CC1C91480195000486081 /* Ball.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ball.m; sourceTree = "<group>"; };
 		237CC1CB148019B400486081 /* ColorBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorBall.h; sourceTree = "<group>"; };
@@ -91,6 +90,9 @@
 		237CC1DD1480216D00486081 /* cgreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cgreen.png; sourceTree = "<group>"; };
 		237CC1DE1480216D00486081 /* cred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cred.png; sourceTree = "<group>"; };
 		237CC1DF1480216D00486081 /* cyellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cyellow.png; sourceTree = "<group>"; };
+		237CC1E9148034DE00486081 /* Display.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Display.h; sourceTree = "<group>"; };
+		237CC1EA148034DF00486081 /* Display.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Display.m; sourceTree = "<group>"; };
+		237CC1EC1480364D00486081 /* sempty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sempty.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,8 +158,8 @@
 				232601D91456EE0300A42BC0 /* nakuronViewController.m */,
 				237CC17B147FE89400486081 /* Board.h */,
 				237CC17C147FE89400486081 /* Board.m */,
-				237CC1C5148018DC00486081 /* Square.h */,
-				237CC1C6148018DC00486081 /* Square.m */,
+				237CC1E9148034DE00486081 /* Display.h */,
+				237CC1EA148034DF00486081 /* Display.m */,
 				237CC1C81480195000486081 /* Ball.h */,
 				237CC1C91480195000486081 /* Ball.m */,
 				237CC1CB148019B400486081 /* ColorBall.h */,
@@ -175,6 +177,7 @@
 		232601CA1456EE0300A42BC0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				237CC1EC1480364D00486081 /* sempty.png */,
 				237CC1D71480216D00486081 /* sgreen.png */,
 				237CC1D81480216D00486081 /* sred.png */,
 				237CC1D91480216D00486081 /* syellow.png */,
@@ -291,6 +294,7 @@
 				237CC1E61480216E00486081 /* cgreen.png in Resources */,
 				237CC1E71480216E00486081 /* cred.png in Resources */,
 				237CC1E81480216E00486081 /* cyellow.png in Resources */,
+				237CC1ED1480364D00486081 /* sempty.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,11 +334,11 @@
 				232601D41456EE0300A42BC0 /* nakuronAppDelegate.m in Sources */,
 				232601DA1456EE0300A42BC0 /* nakuronViewController.m in Sources */,
 				237CC17D147FE89400486081 /* Board.m in Sources */,
-				237CC1C7148018DC00486081 /* Square.m in Sources */,
 				237CC1CA1480195000486081 /* Ball.m in Sources */,
 				237CC1CD148019B400486081 /* ColorBall.m in Sources */,
 				237CC1D314801D2900486081 /* Wall.m in Sources */,
 				237CC1D614801DD500486081 /* Empty.m in Sources */,
+				237CC1EB148034DF00486081 /* Display.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

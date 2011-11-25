@@ -7,10 +7,10 @@
 #import "Ball.h"
 
 enum Color {
-    COLOR_RED,
-    COLOR_BLUE,
-    COLOR_GREEN,
-    COLOR_YELLOW,
+    BALL_RED,
+    BALL_BLUE,
+    BALL_GREEN,
+    BALL_YELLOW,
 } Color;
 
 @interface ColorBall : Ball {
@@ -18,6 +18,6 @@ enum Color {
     enum Color color;
 }
 
--(id)init:(enum Color)c;
+-(id)initWithColor:(enum Color)c;
 
 @end

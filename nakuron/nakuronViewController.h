@@ -9,11 +9,15 @@
 #import <UIKit/UIKit.h>
 
 #import "Board.h"
-#import "Square.h"
 #import "Ball.h"
 #import "ColorBall.h"
+#import "Display.h"
 
 @interface nakuronViewController : UIViewController {
+@private
+    Display *display;
 }
+
++(id)getInstance;
 
 @end

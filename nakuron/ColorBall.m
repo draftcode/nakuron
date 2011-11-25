@@ -7,7 +7,7 @@
 
 @implementation ColorBall
 
--(id)init:(enum Color)c {
+-(id)initWithColor:(enum Color)c {
     color = c;
     return self;
 }

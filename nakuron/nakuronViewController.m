@@ -10,6 +10,12 @@
 
 @implementation nakuronViewController
 
+static nakuronViewController *instance = nil;
+
++(id)getInstance {
+    return instance;
+}
+
 - (void)dealloc
 {
     [super dealloc];
@@ -25,19 +31,39 @@
 
 #pragma mark - View lifecycle
 
-/*
+//*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    instance = self;
+   
+    // ステータスバーを消す。ここじゃなくて他のところに書くべき？
+    // didFinishLaunchingWithOption とかに書くといいらしいけど、それどこ？
+    //[UIApplication sharedApplication].statusBarHidden	= YES;
+    
+    // 盤初期化
+    display = [[Display alloc] init];
+
+    // まず空のマスを描画
+    for (int i = 1; i <= [[display getBoard] getBoardSize]; i++) {
+        for (int j = 1; j <= [[display getBoard] getBoardSize]; j++) {
+            UIImage *img = [UIImage imageNamed:@"sempty.png"];
+            UIImageView *imgv = [[UIImageView alloc] 
+                                 initWithFrame:[[display getBoard] 
+                                                getCoordWithCell:i cell_y:j]];
+            imgv.image = img;
+            [self.view addSubview:imgv];
+        }
+    }
 }
-*/
+//*/
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
