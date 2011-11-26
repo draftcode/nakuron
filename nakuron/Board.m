@@ -4,15 +4,14 @@
 //
 
 #import "nakuronViewController.h"
-#import "Display.h"
 #import "Board.h"
 #import "Ball.h"
 
 @implementation Board
 
 -(id)initWithSize:(int)size {
-    CGFloat w = [Display getScreenWidth];
-    CGFloat h = [Display getScreenHeight];
+    CGFloat w = [nakuronViewController getScreenWidth];
+    CGFloat h = [nakuronViewController getScreenHeight];
     
     // 盤面サイズ
     BOARD_SIZE = size;
@@ -33,15 +32,15 @@
     // BOARD_SIZE = 240,
     // START_X = 40, START_Y = 120, END_X = 280, END_Y = 360,
     
-    // size ぶんの領域を確保して cells を初期化
-    cells = [[NSMutableArray alloc] initWithCapacity:size];
+    // size ぶんの領域を確保して pieces を初期化
+    pieces = [[NSMutableArray alloc] initWithCapacity:size];
     for (int i = 0; i < size; i++) {
-        // cells[i] を初期化
-        [cells insertObject:[[NSMutableArray alloc] initWithCapacity:size] atIndex:i];
+        // pieces[i] を初期化
+        [pieces insertObject:[[NSMutableArray alloc] initWithCapacity:size] atIndex:i];
         for (int j = 0; j < size; j++) {
-            // cells[i][j] にオブジェクト設定。とりあえず ColorBall
-            [[cells objectAtIndex:i]
-             insertObject:[[ColorBall alloc] initWithColor:BALL_RED]
+            // pieces[i][j] にオブジェクト設定。とりあえず赤玉
+            [[pieces objectAtIndex:i]
+             insertObject:[[Ball alloc] initWithColor:[[Color alloc] initWithColorName:@"red"]]
              atIndex:j];
         }
     }
@@ -49,20 +48,28 @@
     return self;
 }
 
+-(id)getPieces {
+    return pieces;
+}
+
 -(int)getBoardSize {
     return BOARD_SIZE;
 }
 
--(CGRect)getCoordWithCell:(int)cell_x cell_y:(int)cell_y {
+-(CGRect)getCoordPxWithCoord:(int)x y:(int)y {
     //if (1 <= cell_x && cell_x <= BOARD_SIZE
     //    && 1 <= cell_y && cell_y <= BOARD_SIZE) {
-        return CGRectMake(START_X_PX+(cell_x-1)*CELL_SIZE_PX,
-                          START_Y_PX+(cell_y-1)*CELL_SIZE_PX, 
+        return CGRectMake(START_X_PX+(x-1)*CELL_SIZE_PX,
+                          START_Y_PX+(y-1)*CELL_SIZE_PX, 
                           CELL_SIZE_PX,
                           CELL_SIZE_PX);
     //} else {
     //    return nil;
     //}
+}
+
+-(Piece*)getPieceWithCorrd:(int)x y:(int)y {
+    return [[pieces objectAtIndex:x-1] objectAtIndex:y-1];
 }
 
 @end

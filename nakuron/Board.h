@@ -8,7 +8,7 @@
 
 @interface Board : NSObject {
 @private
-    NSMutableArray *cells;
+    NSMutableArray *pieces;
     
     int BOARD_SIZE;
     
@@ -21,6 +21,9 @@
 
 -(int)getBoardSize;
 
--(CGRect)getCoordWithCell:(int)cell_x cell_y:(int)cell_y;
+-(id)getPieces;
+
+-(CGRect)getCoordPxWithCoord:(int)x y:(int)y;
+-(Piece*)getPieceWithCorrd:(int)x y:(int)y;
 
 @end

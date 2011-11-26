@@ -3,10 +3,18 @@
 //  nakuron
 //
 
-#import <Foundation/Foundation.h>
+#import "Piece.h"
+#import "Color.h"
 
-@interface Ball : NSObject {
-
+@interface Ball : Piece {
+@private
+    Color *color;
+    NSString *imageFileName;
+    UIImage *image;
 }
+
+-(id)initWithColor:(Color*)c;
+
+-(id)getImage;
 
 @end

@@ -22,9 +22,10 @@
 		232601EE1456EE0300A42BC0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 232601EC1456EE0300A42BC0 /* InfoPlist.strings */; };
 		232601F11456EE0300A42BC0 /* nakuronTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 232601F01456EE0300A42BC0 /* nakuronTests.h */; };
 		232601F31456EE0300A42BC0 /* nakuronTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 232601F21456EE0300A42BC0 /* nakuronTests.m */; };
+		236D3DD01481786C00168BF3 /* Ball.m in Sources */ = {isa = PBXBuildFile; fileRef = 236D3DCF1481786C00168BF3 /* Ball.m */; };
+		236D3DD314817A0300168BF3 /* Hole.m in Sources */ = {isa = PBXBuildFile; fileRef = 236D3DD214817A0300168BF3 /* Hole.m */; };
+		236D3DD614817B6000168BF3 /* Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 236D3DD514817B6000168BF3 /* Color.m */; };
 		237CC17D147FE89400486081 /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = 237CC17C147FE89400486081 /* Board.m */; };
-		237CC1CA1480195000486081 /* Ball.m in Sources */ = {isa = PBXBuildFile; fileRef = 237CC1C91480195000486081 /* Ball.m */; };
-		237CC1CD148019B400486081 /* ColorBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 237CC1CC148019B400486081 /* ColorBall.m */; };
 		237CC1D314801D2900486081 /* Wall.m in Sources */ = {isa = PBXBuildFile; fileRef = 237CC1D214801D2900486081 /* Wall.m */; };
 		237CC1D614801DD500486081 /* Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = 237CC1D514801DD500486081 /* Empty.m */; };
 		237CC1E01480216E00486081 /* sgreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 237CC1D71480216D00486081 /* sgreen.png */; };
@@ -36,8 +37,12 @@
 		237CC1E61480216E00486081 /* cgreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 237CC1DD1480216D00486081 /* cgreen.png */; };
 		237CC1E71480216E00486081 /* cred.png in Resources */ = {isa = PBXBuildFile; fileRef = 237CC1DE1480216D00486081 /* cred.png */; };
 		237CC1E81480216E00486081 /* cyellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 237CC1DF1480216D00486081 /* cyellow.png */; };
-		237CC1EB148034DF00486081 /* Display.m in Sources */ = {isa = PBXBuildFile; fileRef = 237CC1EA148034DF00486081 /* Display.m */; };
 		237CC1ED1480364D00486081 /* sempty.png in Resources */ = {isa = PBXBuildFile; fileRef = 237CC1EC1480364D00486081 /* sempty.png */; };
+		23A895501481595900D42AA1 /* arrow-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 23A8954C1481595900D42AA1 /* arrow-down.png */; };
+		23A895511481595900D42AA1 /* arrow-right.png in Resources */ = {isa = PBXBuildFile; fileRef = 23A8954D1481595900D42AA1 /* arrow-right.png */; };
+		23A895521481595900D42AA1 /* arrow-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 23A8954E1481595900D42AA1 /* arrow-up.png */; };
+		23A895531481595900D42AA1 /* arrow-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 23A8954F1481595900D42AA1 /* arrow-left.png */; };
+		23A89557148177AC00D42AA1 /* Piece.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A89556148177AC00D42AA1 /* Piece.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,12 +76,14 @@
 		232601EF1456EE0300A42BC0 /* nakuronTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "nakuronTests-Prefix.pch"; sourceTree = "<group>"; };
 		232601F01456EE0300A42BC0 /* nakuronTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nakuronTests.h; sourceTree = "<group>"; };
 		232601F21456EE0300A42BC0 /* nakuronTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nakuronTests.m; sourceTree = "<group>"; };
+		236D3DCE1481786C00168BF3 /* Ball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
+		236D3DCF1481786C00168BF3 /* Ball.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ball.m; sourceTree = "<group>"; };
+		236D3DD114817A0200168BF3 /* Hole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hole.h; sourceTree = "<group>"; };
+		236D3DD214817A0300168BF3 /* Hole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hole.m; sourceTree = "<group>"; };
+		236D3DD414817B6000168BF3 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
+		236D3DD514817B6000168BF3 /* Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Color.m; sourceTree = "<group>"; };
 		237CC17B147FE89400486081 /* Board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
 		237CC17C147FE89400486081 /* Board.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Board.m; sourceTree = "<group>"; };
-		237CC1C81480195000486081 /* Ball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
-		237CC1C91480195000486081 /* Ball.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ball.m; sourceTree = "<group>"; };
-		237CC1CB148019B400486081 /* ColorBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorBall.h; sourceTree = "<group>"; };
-		237CC1CC148019B400486081 /* ColorBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorBall.m; sourceTree = "<group>"; };
 		237CC1D114801D2900486081 /* Wall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wall.h; sourceTree = "<group>"; };
 		237CC1D214801D2900486081 /* Wall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wall.m; sourceTree = "<group>"; };
 		237CC1D414801DD500486081 /* Empty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Empty.h; sourceTree = "<group>"; };
@@ -90,9 +97,13 @@
 		237CC1DD1480216D00486081 /* cgreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cgreen.png; sourceTree = "<group>"; };
 		237CC1DE1480216D00486081 /* cred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cred.png; sourceTree = "<group>"; };
 		237CC1DF1480216D00486081 /* cyellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cyellow.png; sourceTree = "<group>"; };
-		237CC1E9148034DE00486081 /* Display.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Display.h; sourceTree = "<group>"; };
-		237CC1EA148034DF00486081 /* Display.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Display.m; sourceTree = "<group>"; };
 		237CC1EC1480364D00486081 /* sempty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sempty.png; sourceTree = "<group>"; };
+		23A8954C1481595900D42AA1 /* arrow-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-down.png"; sourceTree = "<group>"; };
+		23A8954D1481595900D42AA1 /* arrow-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-right.png"; sourceTree = "<group>"; };
+		23A8954E1481595900D42AA1 /* arrow-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-up.png"; sourceTree = "<group>"; };
+		23A8954F1481595900D42AA1 /* arrow-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-left.png"; sourceTree = "<group>"; };
+		23A89555148177AC00D42AA1 /* Piece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Piece.h; sourceTree = "<group>"; };
+		23A89556148177AC00D42AA1 /* Piece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Piece.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,15 +169,17 @@
 				232601D91456EE0300A42BC0 /* nakuronViewController.m */,
 				237CC17B147FE89400486081 /* Board.h */,
 				237CC17C147FE89400486081 /* Board.m */,
-				237CC1E9148034DE00486081 /* Display.h */,
-				237CC1EA148034DF00486081 /* Display.m */,
-				237CC1C81480195000486081 /* Ball.h */,
-				237CC1C91480195000486081 /* Ball.m */,
-				237CC1CB148019B400486081 /* ColorBall.h */,
-				237CC1CC148019B400486081 /* ColorBall.m */,
-				237CC1D114801D2900486081 /* Wall.h */,
+				236D3DCE1481786C00168BF3 /* Ball.h */,
+				236D3DCF1481786C00168BF3 /* Ball.m */,
+				23A89555148177AC00D42AA1 /* Piece.h */,
+				23A89556148177AC00D42AA1 /* Piece.m */,
+				236D3DD414817B6000168BF3 /* Color.h */,
+				236D3DD514817B6000168BF3 /* Color.m */,
 				237CC1D414801DD500486081 /* Empty.h */,
 				237CC1D514801DD500486081 /* Empty.m */,
+				236D3DD114817A0200168BF3 /* Hole.h */,
+				236D3DD214817A0300168BF3 /* Hole.m */,
+				237CC1D114801D2900486081 /* Wall.h */,
 				237CC1D214801D2900486081 /* Wall.m */,
 				232601DB1456EE0300A42BC0 /* nakuronViewController.xib */,
 				232601CA1456EE0300A42BC0 /* Supporting Files */,
@@ -187,6 +200,10 @@
 				237CC1DD1480216D00486081 /* cgreen.png */,
 				237CC1DE1480216D00486081 /* cred.png */,
 				237CC1DF1480216D00486081 /* cyellow.png */,
+				23A8954C1481595900D42AA1 /* arrow-down.png */,
+				23A8954D1481595900D42AA1 /* arrow-right.png */,
+				23A8954E1481595900D42AA1 /* arrow-up.png */,
+				23A8954F1481595900D42AA1 /* arrow-left.png */,
 				232601CB1456EE0300A42BC0 /* nakuron-Info.plist */,
 				232601CC1456EE0300A42BC0 /* InfoPlist.strings */,
 				232601CF1456EE0300A42BC0 /* nakuron-Prefix.pch */,
@@ -259,6 +276,9 @@
 /* Begin PBXProject section */
 		232601B61456EE0200A42BC0 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = 232601B91456EE0200A42BC0 /* Build configuration list for PBXProject "nakuron" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -295,6 +315,10 @@
 				237CC1E71480216E00486081 /* cred.png in Resources */,
 				237CC1E81480216E00486081 /* cyellow.png in Resources */,
 				237CC1ED1480364D00486081 /* sempty.png in Resources */,
+				23A895501481595900D42AA1 /* arrow-down.png in Resources */,
+				23A895511481595900D42AA1 /* arrow-right.png in Resources */,
+				23A895521481595900D42AA1 /* arrow-up.png in Resources */,
+				23A895531481595900D42AA1 /* arrow-left.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,11 +358,12 @@
 				232601D41456EE0300A42BC0 /* nakuronAppDelegate.m in Sources */,
 				232601DA1456EE0300A42BC0 /* nakuronViewController.m in Sources */,
 				237CC17D147FE89400486081 /* Board.m in Sources */,
-				237CC1CA1480195000486081 /* Ball.m in Sources */,
-				237CC1CD148019B400486081 /* ColorBall.m in Sources */,
 				237CC1D314801D2900486081 /* Wall.m in Sources */,
 				237CC1D614801DD500486081 /* Empty.m in Sources */,
-				237CC1EB148034DF00486081 /* Display.m in Sources */,
+				23A89557148177AC00D42AA1 /* Piece.m in Sources */,
+				236D3DD01481786C00168BF3 /* Ball.m in Sources */,
+				236D3DD314817A0300168BF3 /* Hole.m in Sources */,
+				236D3DD614817B6000168BF3 /* Color.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +461,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "nakuron/nakuron-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "nakuron/nakuron-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -449,6 +475,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "nakuron/nakuron-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "nakuron/nakuron-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
@@ -467,6 +494,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "nakuronTests/nakuronTests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "nakuronTests/nakuronTests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -489,6 +517,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "nakuronTests/nakuronTests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "nakuronTests/nakuronTests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",

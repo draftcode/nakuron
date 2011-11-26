@@ -2,18 +2,16 @@
 //  nakuronViewController.m
 //  nakuron
 //
-//  Created by dai on 11/10/25.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
 
 #import "nakuronViewController.h"
 
 @implementation nakuronViewController
 
-static nakuronViewController *instance = nil;
-
-+(id)getInstance {
-    return instance;
++(CGFloat)getScreenWidth {
+    return [[UIScreen mainScreen] bounds].size.width;
+}
++(CGFloat)getScreenHeight {
+    return [[UIScreen mainScreen] bounds].size.height;
 }
 
 - (void)dealloc
@@ -37,31 +35,25 @@ static nakuronViewController *instance = nil;
 {
     [super viewDidLoad];
     
-    instance = self;
-   
     // ステータスバーを消す。ここじゃなくて他のところに書くべき？
     // didFinishLaunchingWithOption とかに書くといいらしいけど、それどこ？
     //[UIApplication sharedApplication].statusBarHidden	= YES;
-    
-    // 盤初期化
-    display = [[Display alloc] init];
 
-    // まず空のマスを描画
-    for (int i = 1; i <= [[display getBoard] getBoardSize]; i++) {
-        for (int j = 1; j <= [[display getBoard] getBoardSize]; j++) {
-            UIImageView *imgs = [[UIImageView alloc] 
-                                 initWithFrame:[[display getBoard] 
-                                                getCoordWithCell:i cell_y:j]];
-            imgs.image = [UIImage imageNamed:@"sempty.png"];
-            [self.view addSubview:imgs];
-            
-            UIImageView *imgc = [[UIImageView alloc] 
-                                 initWithFrame:[[display getBoard] 
-                                                getCoordWithCell:i cell_y:j]];
-            imgc.image = [UIImage imageNamed:@"cblue.png"];
-            [self.view addSubview:imgc];
-        }
+    int colorNum = 4;
+    NSString *cs[] = {@"red", @"blue", @"yellow", @"green"};
+    colors = [[NSMutableArray alloc] initWithCapacity:colorNum];
+    for (int i = 0; i < colorNum; i++) {
+        [colors insertObject:[[Color alloc] initWithColorName:cs[i]] atIndex:i];
     }
+
+    // 盤初期化
+    board = [[Board alloc] initWithSize:8];
+    
+    // まず空のマスを描画
+    [self showCells];
+
+    // 球を描画
+    [self show];
 }
 //*/
 
@@ -75,6 +67,28 @@ static nakuronViewController *instance = nil;
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+-(void)show {
+    for (int i = 1; i <= [board getBoardSize]; i++) {
+        for (int j = 1; j <= [board getBoardSize]; j++) {
+            UIImageView *imgc = [[UIImageView alloc] initWithFrame:[board getCoordPxWithCoord:i y:j]];
+            imgc.image = [[[board getPieceWithCorrd:i y:j] getImage] copy];
+            //imgc.image = [UIImage imageNamed:@"cred.png"];
+            [self.view addSubview:imgc];
+        }
+    }
+}
+
+-(void)showCells {
+    for (int i = 1; i <= [board getBoardSize]; i++) {
+        for (int j = 1; j <= [board getBoardSize]; j++) {
+            UIImageView *imgs = [[UIImageView alloc] 
+                                 initWithFrame:[board getCoordPxWithCoord:i y:j]];
+            imgs.image = [UIImage imageNamed:@"sempty.png"];
+            [self.view addSubview:imgs];
+        }
+    }
 }
 
 @end
