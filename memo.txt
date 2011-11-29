@@ -1,0 +1,12 @@
+有用そうなbookmarkのメモ
+OpenGL使う場合
+
+iphoneでタワーディフェンスを作る記事
+http://journal.mycom.co.jp/column/iphone/018/index.html
+
+-------------------------------
+CoreGraphicsでアニメーションを作る場合
+
+UIImageでアニメーションする記事
+http://akisute.com/2010/08/calayer-uiimage.html
+http://journal.mycom.co.jp/special/2007/coreanimation/002.html
