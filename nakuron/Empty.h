@@ -3,8 +3,10 @@
 //  nakuron
 //
 
-#import "Ball.h"
+#import "Piece.h"
 
-@interface Empty : Ball
+@interface Empty : Piece
+
+-(Piece*)init;
 
 @end

@@ -23,7 +23,7 @@
 {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
+
     // Release any cached data, images, etc that aren't in use.
 }
 
@@ -34,10 +34,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     // ステータスバーを消す。ここじゃなくて他のところに書くべき？
     // didFinishLaunchingWithOption とかに書くといいらしいけど、それどこ？
-    //[UIApplication sharedApplication].statusBarHidden	= YES;
+    //[UIApplication sharedApplication].statusBarHidden = YES;
 
     int colorNum = 4;
     NSString *cs[] = {@"red", @"blue", @"yellow", @"green"};
@@ -47,8 +47,8 @@
     }
 
     // 盤初期化
-    board = [[Board alloc] initWithSize:4];
-    
+    board = [[Board alloc] initWithSize:8];
+
     // まず空のマスを描画
     [self showCells];
 
@@ -60,7 +60,7 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    
+
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -72,12 +72,11 @@
 -(void)show {
     for (int i = 1; i <= [board getBoardSize]; i++) {
         for (int j = 1; j <= [board getBoardSize]; j++) {
-            UIImageView *imgc = [[UIImageView alloc] initWithFrame:[board getCoordPxWithCoord:i y:j]];
             UIImage *image = [[board getPieceWithCorrd:i y:j] getImage];
             if (image) {
-                imgc.image = [image copy];
+                [[board getPieceWithCorrd:i y:j] setImage:[image copy]];
                 //imgc.image = [UIImage imageNamed:@"cred.png"];
-                [self.view addSubview:imgc];
+                //[self.view addSubview:imgc];
             }
         }
     }
@@ -87,10 +86,12 @@
     // マスを表示
     for (int i = 1; i <= [board getBoardSize]; i++) {
         for (int j = 1; j <= [board getBoardSize]; j++) {
-            UIImageView *imgs = [[UIImageView alloc] 
-                                 initWithFrame:[board getCoordPxWithCoord:i y:j]];
+            CGRect frame = [board getCoordPxWithCoord:i y:j];
+            UIImageView *imgs = [[UIImageView alloc]
+                                 initWithFrame:frame];
             imgs.image = [UIImage imageNamed:@"sempty.png"];
             [self.view addSubview:imgs];
+            [self.view addSubview:[[board getPieceWithCorrd:i y:j] getImageV]];
         }
     }
     // ボタンを表示

@@ -7,15 +7,11 @@
 
 @implementation Ball
 
--(id)initWithColor:(Color*)c {
+-(Piece*)initWithColor:(Color*)c {
     color = c;
-    imageFileName = [[NSString alloc] initWithFormat:@"c%@.png",[c getName]];
+    imageFileName = [[NSString alloc] initWithFormat:@"b%@.png",[c getName]];
     image = [UIImage imageNamed:imageFileName];
     return self;
-}
-
--(id)getImage {
-    return [image copy];
 }
 
 @end

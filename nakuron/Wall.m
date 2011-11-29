@@ -7,4 +7,10 @@
 
 @implementation Wall
 
+-(Piece*)init {
+    imageFileName = @"wall.png";
+    image = [UIImage imageNamed:imageFileName];
+    return self;
+}
+
 @end

@@ -9,12 +9,8 @@
 @interface Ball : Piece {
 @private
     Color *color;
-    NSString *imageFileName;
-    UIImage *image;
 }
 
--(id)initWithColor:(Color*)c;
-
-//-(id)getImage;
+-(Piece*)initWithColor:(Color*)c;
 
 @end

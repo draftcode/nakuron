@@ -4,8 +4,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Ball.h"
+#import "Piece.h"
 
-@interface Wall : Ball
+@interface Wall : Piece
+
+-(Piece*)init;
 
 @end

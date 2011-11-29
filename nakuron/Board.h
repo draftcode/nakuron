@@ -9,17 +9,19 @@
 @interface Board : NSObject {
 @private
     NSMutableArray *pieces;
-    
+
     int BOARD_SIZE;
-    
+
     int BOARD_SIZE_PX;
     int START_X_PX, START_Y_PX, END_X_PX, END_Y_PX;
     int CELL_SIZE_PX;
 }
 
--(id)initWithSize:(int)size;
+-(Board*)initWithSize:(int)size;
 
 -(int)getBoardSize;
+
+-(void)updatePieces;
 
 -(id)getPieces;
 

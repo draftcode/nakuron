@@ -4,7 +4,14 @@
 //
 
 #import "Piece.h"
+#import "Color.h"
 
-@interface Hole : Piece
+@interface Hole : Piece {
+
+@private
+    Color *color;
+}
+
+-(Piece*)initWithColor:(Color*)c;
 
 @end

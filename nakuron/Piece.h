@@ -7,10 +7,16 @@
 #import "Color.h"
 
 @interface Piece : NSObject {
+@protected
+    NSString *imageFileName;
+    UIImage *image;
 @private
-    UIImageView *imgc;
+    UIImageView *imgv;
 }
 
--(id)getImage;
+-(UIImage*)getImage;
+-(UIImageView*)getImageV;
+-(void)setImage:(UIImage*)img;
+-(void)setFrame:(CGRect)frame;
 
 @end
