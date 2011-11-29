@@ -47,7 +47,7 @@
     }
 
     // 盤初期化
-    board = [[Board alloc] initWithSize:8];
+    board = [[Board alloc] initWithSize:4];
     
     // まず空のマスを描画
     [self showCells];
@@ -73,14 +73,18 @@
     for (int i = 1; i <= [board getBoardSize]; i++) {
         for (int j = 1; j <= [board getBoardSize]; j++) {
             UIImageView *imgc = [[UIImageView alloc] initWithFrame:[board getCoordPxWithCoord:i y:j]];
-            imgc.image = [[[board getPieceWithCorrd:i y:j] getImage] copy];
-            //imgc.image = [UIImage imageNamed:@"cred.png"];
-            [self.view addSubview:imgc];
+            UIImage *image = [[board getPieceWithCorrd:i y:j] getImage];
+            if (image) {
+                imgc.image = [image copy];
+                //imgc.image = [UIImage imageNamed:@"cred.png"];
+                [self.view addSubview:imgc];
+            }
         }
     }
 }
 
 -(void)showCells {
+    // マスを表示
     for (int i = 1; i <= [board getBoardSize]; i++) {
         for (int j = 1; j <= [board getBoardSize]; j++) {
             UIImageView *imgs = [[UIImageView alloc] 
@@ -89,6 +93,7 @@
             [self.view addSubview:imgs];
         }
     }
+    // ボタンを表示
 }
 
 @end

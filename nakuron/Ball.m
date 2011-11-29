@@ -15,7 +15,6 @@
 }
 
 -(id)getImage {
-//    NSLog(imageFileName);
     return [image copy];
 }
 

@@ -15,6 +15,6 @@
 
 -(id)initWithColor:(Color*)c;
 
--(id)getImage;
+//-(id)getImage;
 
 @end

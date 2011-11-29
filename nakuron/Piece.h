@@ -6,6 +6,11 @@
 #import <Foundation/Foundation.h>
 #import "Color.h"
 
-@interface Piece : NSObject
+@interface Piece : NSObject {
+@private
+    UIImageView *imgc;
+}
+
+-(id)getImage;
 
 @end
