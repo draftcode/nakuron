@@ -8,11 +8,21 @@
 
 @implementation Piece
 
+-(bool)moveTo:(Piece *)target {
+    [ProgrammingException error:@"Piece.moveToをオーバーライドしていない"];
+    return false;
+}
+
+-(bool)waitFor:(Ball*)b {
+    [ProgrammingException error:@"Piece.waitForをオーバーライドしていない"];
+    return false;
+}
+
 -(UIImageView*)getImageV {
     if (imgv.image) {
         return imgv;
     } else {
-        [ProgrammingException error:@"Piece.imageが上書きされていません"];
+        [ProgrammingException error:@"Piece.imageを上書きしていない"];
         return nil;
     }
 }
@@ -21,7 +31,7 @@
     if (image) {
         return image;
     } else {
-        [ProgrammingException error:@"Piece.imageが上書きされていません"];
+        [ProgrammingException error:@"Piece.imageを上書きしていな"];
         return nil;
     }
 }

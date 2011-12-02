@@ -11,6 +11,7 @@
     Color *color;
 }
 
+-(Color*)getColor;
 -(Piece*)initWithColor:(Color*)c;
 
 @end

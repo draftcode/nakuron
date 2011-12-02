@@ -11,7 +11,8 @@
                               exceptionWithName:@"ProgrammingException"
                               reason:message
                               userInfo:nil];
-    @throw exception;    
+    @throw exception;
+    exit(127);
 }
 
 @end

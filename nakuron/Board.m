@@ -9,14 +9,17 @@
 #import "Empty.h"
 #import "Wall.h"
 #import "Hole.h"
+#import "ProgrammingException.h"
 
 @implementation Board
 
--(Board*)initWithSize:(int)size {
+-(Board*)initWithSize:(int)size colors:(NSMutableArray*)colors {
+    score = 0;
     CGFloat w = [nakuronViewController getScreenWidth];
     CGFloat h = [nakuronViewController getScreenHeight];
 
     // 盤面サイズ
+    // (1,1) ... (BOARD_SIZE-2,BOARD_SIZE-2) が、球の存在しうる領域
     BOARD_SIZE = size + 2;
 
     // 盤面サイズ (px) の定義
@@ -35,6 +38,8 @@
     // BOARD_SIZE = 240,
     // START_X = 40, START_Y = 120, END_X = 280, END_Y = 360,
 
+    srand(time(nil));
+    
     // BOARD_SIZE ぶんの領域を確保して pieces を初期化
     pieces = [[NSMutableArray alloc] initWithCapacity:BOARD_SIZE];
     for (int i = 0; i < BOARD_SIZE; i++) {
@@ -49,13 +54,17 @@
                     tmp = [[Wall alloc] init];
                 } else {
                     tmp = [[Hole alloc]
-                           initWithColor:[[Color alloc] initWithColorName:@"red"]];
+                           initWithColor:[colors objectAtIndex:rand()%[colors count]]];
                 }
             } else {
-                tmp = [[Ball alloc]
-                       initWithColor:[[Color alloc] initWithColorName:@"red"]];
+                if ((rand() % [colors count]) == 0) {
+                    tmp = [[Wall alloc] init];
+                } else {
+                    tmp = [[Ball alloc]
+                           initWithColor:[colors objectAtIndex:rand()%[colors count]]];
+                }
             }
-            [tmp setFrame:[self getCoordPxWithCoord:i+1 y:j+1]];
+            [tmp setFrame:[self getCoordPxWithCoord:i y:j]];
             [tmp setImage:[tmp getImage]];
             [[pieces objectAtIndex:i]
              insertObject:tmp
@@ -70,8 +79,36 @@
     return BOARD_SIZE;
 }
 
+-(int)getScore {
+    return score;
+}
+
 -(void)updatePieces {
 
+}
+
+-(void)move:(Direction)d {
+    int start, end, dx, dy;
+    switch (d) {
+        case LEFT: start = 1; end = BOARD_SIZE-1; dy = 0; dx = 1; break;
+        case UP: start = 1; end = BOARD_SIZE-1; dy = 1; dx = 0; break;
+        case RIGHT: start = BOARD_SIZE-2; end = 0; dy = 0; dx = -1; break;
+        case DOWN: start = BOARD_SIZE-2; end = 0; dy = -1; dx = 0; break;
+    }
+    if (dx == 0) {
+       // 縦方向
+        for (int i = 1; i != BOARD_SIZE; i++) {
+            Piece *target = [self getPieceWithCorrd:i y:end];
+            for (int j = start; j != end; j += dy) {
+                if (!((start <= j && j <= end) || (end <= j && j <= start))) {
+                    [ProgrammingException error:@"ループ変数がボードの範囲外"];
+                }
+            }
+        }
+    } else {
+        // 横方向
+
+    }
 }
 
 -(id)getPieces {
@@ -81,8 +118,8 @@
 -(CGRect)getCoordPxWithCoord:(int)x y:(int)y {
     //if (1 <= cell_x && cell_x <= BOARD_SIZE
     //    && 1 <= cell_y && cell_y <= BOARD_SIZE) {
-        return CGRectMake(START_X_PX+(x-1)*CELL_SIZE_PX,
-                          START_Y_PX+(y-1)*CELL_SIZE_PX,
+        return CGRectMake(START_X_PX+x*CELL_SIZE_PX,
+                          START_Y_PX+y*CELL_SIZE_PX,
                           CELL_SIZE_PX,
                           CELL_SIZE_PX);
     //} else {
@@ -91,7 +128,7 @@
 }
 
 -(Piece*)getPieceWithCorrd:(int)x y:(int)y {
-    return [[pieces objectAtIndex:x-1] objectAtIndex:y-1];
+    return [[pieces objectAtIndex:x] objectAtIndex:y];
 }
 
 @end
