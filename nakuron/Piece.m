@@ -8,14 +8,19 @@
 
 @implementation Piece
 
--(bool)moveTo:(Piece *)target {
+-(Piece*)moveTo:(Piece *)target {
     [ProgrammingException error:@"Piece.moveToをオーバーライドしていない"];
-    return false;
+    return nil;
 }
 
 -(bool)waitFor:(Ball*)b {
     [ProgrammingException error:@"Piece.waitForをオーバーライドしていない"];
     return false;
+}
+
+-(NSString*)toString {
+    [ProgrammingException error:@"Piece.toStringをオーバーライドしていない"];
+    return nil;
 }
 
 -(UIImageView*)getImageV {

@@ -12,12 +12,17 @@
     return true;
 }
 
--(bool)moveTo:(Piece *)target {
-    return false;
+-(Piece*)moveTo:(Piece *)target {
+    return nil;
+}
+
+-(NSString*)toString {
+    return @"Emp";
 }
 
 -(Piece*)init {
-    image = [UIImage imageNamed:@"empty.png"];
+    imageFileName = @"empty.png";
+    image = [UIImage imageNamed:imageFileName];
     return self;
 }
 

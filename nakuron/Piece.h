@@ -17,8 +17,9 @@
 }
 
 -(bool)waitFor:(Ball*)b;
--(bool)moveTo:(Piece*)target;
+-(Piece*)moveTo:(Piece*)target;
 
+-(NSString*)toString;
 -(UIImage*)getImage;
 -(UIImageView*)getImageV;
 -(void)setImage:(UIImage*)img;

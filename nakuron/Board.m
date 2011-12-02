@@ -13,6 +13,22 @@
 
 @implementation Board
 
+-(void)setPieceWithCorrd:(int)x y:(int)y obj:(id)obj{
+    [[pieces objectAtIndex:x] replaceObjectAtIndex:y withObject:obj];
+}
+
+-(void)dump {
+    NSLog(@"===================");
+    for (int i = 0; i < BOARD_SIZE; i++) {
+        NSMutableString *s = [NSMutableString stringWithFormat:@""];
+        for (int j = 0; j < BOARD_SIZE; j++) {
+            [s appendFormat:@"%@,",[[[self getPieceWithCorrd:j y:i] toString] substringToIndex:1]];
+        }
+        NSLog(s);
+    }
+    NSLog(@"===================");
+}
+
 -(Board*)initWithSize:(int)size colors:(NSMutableArray*)colors {
     score = 0;
     CGFloat w = [nakuronViewController getScreenWidth];
@@ -39,7 +55,7 @@
     // START_X = 40, START_Y = 120, END_X = 280, END_Y = 360,
 
     srand(time(nil));
-    
+
     // BOARD_SIZE ぶんの領域を確保して pieces を初期化
     pieces = [[NSMutableArray alloc] initWithCapacity:BOARD_SIZE];
     for (int i = 0; i < BOARD_SIZE; i++) {
@@ -66,9 +82,7 @@
             }
             [tmp setFrame:[self getCoordPxWithCoord:i y:j]];
             [tmp setImage:[tmp getImage]];
-            [[pieces objectAtIndex:i]
-             insertObject:tmp
-             atIndex:j];
+            [[pieces objectAtIndex:i] addObject:tmp];
         }
     }
 
@@ -95,20 +109,44 @@
         case RIGHT: start = BOARD_SIZE-2; end = 0; dy = 0; dx = -1; break;
         case DOWN: start = BOARD_SIZE-2; end = 0; dy = -1; dx = 0; break;
     }
+
     if (dx == 0) {
        // 縦方向
-        for (int i = 1; i != BOARD_SIZE; i++) {
-            Piece *target = [self getPieceWithCorrd:i y:end];
+        for (int i = 1; i != BOARD_SIZE-1; i++) {
+            Piece *target = [self getPieceWithCorrd:i y:start-dy];
             for (int j = start; j != end; j += dy) {
+                [self getPieceWithCorrd:1 y:1];
                 if (!((start <= j && j <= end) || (end <= j && j <= start))) {
                     [ProgrammingException error:@"ループ変数がボードの範囲外"];
+                }
+                Piece *moved = [[self getPieceWithCorrd:i y:j] moveTo:target];
+                // 移動のところバグあり。あとで直す
+                if (moved != nil) {
+                    target = moved;
+                } else {
+                    [self setPieceWithCorrd:i y:j obj:[[Empty alloc] init]];
                 }
             }
         }
     } else {
         // 横方向
-
+        for (int j = 1; j != BOARD_SIZE-1; j++) {
+            Piece *target = [self getPieceWithCorrd:start-dx y:j];
+            for (int i = start; i != end; i += dx) {
+                [self getPieceWithCorrd:1 y:1];
+                if (!((start <= i && i <= end) || (end <= i && i <= start))) {
+                    [ProgrammingException error:@"ループ変数がボードの範囲外"];
+                }
+                Piece *moved = [[self getPieceWithCorrd:i y:j] moveTo:target];
+                if (moved != nil) {
+                    target = moved;
+                } else {
+                    [self setPieceWithCorrd:i y:j obj:[[Empty alloc] init]];
+                }
+            }
+        }
     }
+    [self dump];
 }
 
 -(id)getPieces {

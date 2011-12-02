@@ -11,8 +11,12 @@
     return false;
 }
 
--(bool)moveTo:(Piece *)target {
-    return false;
+-(Piece*)moveTo:(Piece *)target {
+    return self;
+}
+
+-(NSString*)toString {
+    return @"Wall";
 }
 
 -(Piece*)init {

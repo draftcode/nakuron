@@ -75,8 +75,6 @@
             UIImage *image = [[board getPieceWithCorrd:i y:j] getImage];
             if (image) {
                 [[board getPieceWithCorrd:i y:j] setImage:[image copy]];
-                //imgc.image = [UIImage imageNamed:@"cred.png"];
-                //[self.view addSubview:imgc];
             }
         }
     }
@@ -125,18 +123,22 @@
     // ここに何かの処理を記述する
     // （引数の button には呼び出し元のUIButtonオブジェクトが引き渡されてきます）
     [board move:LEFT];
+    [self show];
 }
 
 -(void)up:(UIButton*)button {
     [board move:UP];
+    [self show];
 }
 
 -(void)right:(UIButton*)button {
     [board move:RIGHT];
+    [self show];
 }
 
 -(void)down:(UIButton*)button {
     [board move:DOWN];
+    [self show];
 }
 
 @end

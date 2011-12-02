@@ -12,16 +12,21 @@
     Color *c;
     if (((c = [b getColor]) != nil) && (c == [self getColor])) {
         // ここでスコアアップの処理とか。効果音？
-        NSLog(@"同じ色の穴に落ちた");
+        NSString *str = [NSString stringWithFormat:@"%@,同じ色の穴に落ちた\n",[c getName]];
+        NSLog(str);
     } else {
         // 効果音？
     }
     return true;
 }
 
--(bool)moveTo:(Piece *)target {
+-(Piece*)moveTo:(Piece *)target {
     [ProgrammingException error:@"Hole.moveToが呼ばれたけど、そんなはずはない！"];
     return false;
+}
+
+-(NSString*)toString {
+    return [[color getName] capitalizedString];
 }
 
 -(Piece*)initWithColor:(Color*)c {

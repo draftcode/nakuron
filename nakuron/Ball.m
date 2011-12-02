@@ -12,8 +12,16 @@
     return false;
 }
 
--(bool)moveTo:(Piece *)target {
-    return [target waitFor:self];
+-(Piece*)moveTo:(Piece *)target {
+    if ([target waitFor:self]) {
+        return nil;
+    } else {
+        return self;
+    }
+}
+
+-(NSString*)toString {
+    return [color getName];
 }
 
 -(Color*)getColor {
