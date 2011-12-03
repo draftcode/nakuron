@@ -4,6 +4,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Piece.h"
 #import "Ball.h"
 
 typedef enum {

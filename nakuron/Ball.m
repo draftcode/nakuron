@@ -12,7 +12,7 @@
     return false;
 }
 
--(Piece*)moveTo:(Piece *)target {
+-(PieceBody*)moveTo:(PieceBody *)target {
     if ([target waitFor:self]) {
         return nil;
     } else {
@@ -24,14 +24,17 @@
     return [color getName];
 }
 
+-(NSString*)getImageFilneName {
+    return imageFileName;
+}
+
 -(Color*)getColor {
     return color;
 }
 
--(Piece*)initWithColor:(Color*)c {
+-(PieceBody*)initWithColor:(Color*)c {
     color = c;
     imageFileName = [[NSString alloc] initWithFormat:@"b%@.png",[c getName]];
-    image = [UIImage imageNamed:imageFileName];
     return self;
 }
 

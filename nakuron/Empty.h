@@ -3,10 +3,10 @@
 //  nakuron
 //
 
-#import "Piece.h"
+#import "PieceBody.h"
 
-@interface Empty : Piece
+@interface Empty : PieceBody
 
--(Piece*)init;
+-(PieceBody*)init;
 
 @end

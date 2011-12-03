@@ -11,7 +11,7 @@
     return false;
 }
 
--(Piece*)moveTo:(Piece *)target {
+-(PieceBody*)moveTo:(PieceBody*)target {
     return self;
 }
 
@@ -19,9 +19,12 @@
     return @"Wall";
 }
 
--(Piece*)init {
+-(NSString*)getImageFilneName {
+    return imageFileName;
+}
+
+-(PieceBody*)init {
     imageFileName = @"wall.png";
-    image = [UIImage imageNamed:imageFileName];
     return self;
 }
 

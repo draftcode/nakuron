@@ -72,10 +72,7 @@
 -(void)show {
     for (int i = 0; i < [board getBoardSize]; i++) {
         for (int j = 0; j < [board getBoardSize]; j++) {
-            UIImage *image = [[board getPieceWithCorrd:i y:j] getImage];
-            if (image) {
-                [[board getPieceWithCorrd:i y:j] setImage:[image copy]];
-            }
+            [[board getPieceWithCorrd:i y:j] updateImage];
         }
     }
 }

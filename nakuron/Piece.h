@@ -5,24 +5,24 @@
 
 #import <Foundation/Foundation.h>
 #import "Color.h"
+#import "PieceBody.h"
 
 @class Ball;
 
 @interface Piece : NSObject {
-@protected
-    NSString *imageFileName;
-    UIImage *image;
 @private
+    UIImage *image;
     UIImageView *imgv;
+    PieceBody *body;
 }
-
--(bool)waitFor:(Ball*)b;
--(Piece*)moveTo:(Piece*)target;
 
 -(NSString*)toString;
 -(UIImage*)getImage;
 -(UIImageView*)getImageV;
 -(void)setImage:(UIImage*)img;
+-(void)updateImage;
 -(void)setFrame:(CGRect)frame;
+-(PieceBody*)getBody;
+-(void)setBody:(PieceBody*)b;
 
 @end

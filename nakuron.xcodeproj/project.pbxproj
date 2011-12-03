@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		230ACBE4148A987A002CA7E7 /* PieceBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 230ACBE3148A987A002CA7E7 /* PieceBody.m */; };
 		232601C41456EE0300A42BC0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232601C31456EE0300A42BC0 /* UIKit.framework */; };
 		232601C61456EE0300A42BC0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232601C51456EE0300A42BC0 /* Foundation.framework */; };
 		232601C81456EE0300A42BC0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232601C71456EE0300A42BC0 /* CoreGraphics.framework */; };
@@ -57,6 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		230ACBE2148A987A002CA7E7 /* PieceBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieceBody.h; sourceTree = "<group>"; };
+		230ACBE3148A987A002CA7E7 /* PieceBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieceBody.m; sourceTree = "<group>"; };
 		232601BF1456EE0300A42BC0 /* nakuron.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nakuron.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		232601C31456EE0300A42BC0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		232601C51456EE0300A42BC0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -176,6 +179,8 @@
 				236D3DD514817B6000168BF3 /* Color.m */,
 				23A89555148177AC00D42AA1 /* Piece.h */,
 				23A89556148177AC00D42AA1 /* Piece.m */,
+				230ACBE2148A987A002CA7E7 /* PieceBody.h */,
+				230ACBE3148A987A002CA7E7 /* PieceBody.m */,
 				236D3DCE1481786C00168BF3 /* Ball.h */,
 				236D3DCF1481786C00168BF3 /* Ball.m */,
 				237CC1D414801DD500486081 /* Empty.h */,
@@ -370,6 +375,7 @@
 				236D3DD314817A0300168BF3 /* Hole.m in Sources */,
 				236D3DD614817B6000168BF3 /* Color.m in Sources */,
 				23A415B21484C5FE0065D461 /* ProgrammingException.m in Sources */,
+				230ACBE4148A987A002CA7E7 /* PieceBody.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -3,15 +3,15 @@
 //  nakuron
 //
 
-#import "Piece.h"
+#import "PieceBody.h"
 #import "Color.h"
 
-@interface Ball : Piece {
+@interface Ball : PieceBody {
 @private
     Color *color;
 }
 
 -(Color*)getColor;
--(Piece*)initWithColor:(Color*)c;
+-(PieceBody*)initWithColor:(Color*)c;
 
 @end

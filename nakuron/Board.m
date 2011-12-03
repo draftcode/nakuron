@@ -24,7 +24,7 @@
         for (int j = 0; j < BOARD_SIZE; j++) {
             [s appendFormat:@"%@,",[[[self getPieceWithCorrd:j y:i] toString] substringToIndex:1]];
         }
-        NSLog(s);
+        NSLog(@"%@",s);
     }
     NSLog(@"===================");
 }
@@ -63,26 +63,29 @@
         [pieces insertObject:[[NSMutableArray alloc] initWithCapacity:BOARD_SIZE] atIndex:i];
         for (int j = 0; j < BOARD_SIZE; j++) {
             // pieces[i][j] を初期化
-            Piece *tmp;
+            Piece *p;
+            PieceBody *body;
             if (i == 0 || j == 0 || i == BOARD_SIZE-1 || j == BOARD_SIZE-1) {
                 // 4隅
                 if (i+j == 0 || i+j == BOARD_SIZE-1 || i+j == 2*(BOARD_SIZE-1)) {
-                    tmp = [[Wall alloc] init];
+                    body = [[Wall alloc] init];
                 } else {
-                    tmp = [[Hole alloc]
-                           initWithColor:[colors objectAtIndex:rand()%[colors count]]];
+                    body = [[Hole alloc]
+                            initWithColor:[colors objectAtIndex:rand()%[colors count]]];
                 }
             } else {
                 if ((rand() % [colors count]) == 0) {
-                    tmp = [[Wall alloc] init];
+                    body = [[Wall alloc] init];
                 } else {
-                    tmp = [[Ball alloc]
-                           initWithColor:[colors objectAtIndex:rand()%[colors count]]];
+                    body = [[Ball alloc]
+                            initWithColor:[colors objectAtIndex:rand()%[colors count]]];
                 }
             }
-            [tmp setFrame:[self getCoordPxWithCoord:i y:j]];
-            [tmp setImage:[tmp getImage]];
-            [[pieces objectAtIndex:i] addObject:tmp];
+            p = [Piece alloc];
+            [p setFrame:[self getCoordPxWithCoord:i y:j]];
+            [p setImage:[UIImage imageNamed:[body getImageFilneName]]];
+            [p setBody:body];
+            [[pieces objectAtIndex:i] addObject:p];
         }
     }
 
@@ -113,35 +116,33 @@
     if (dx == 0) {
        // 縦方向
         for (int i = 1; i != BOARD_SIZE-1; i++) {
-            Piece *target = [self getPieceWithCorrd:i y:start-dy];
+            PieceBody *target = [[self getPieceWithCorrd:i y:start-dy] getBody];
             for (int j = start; j != end; j += dy) {
-                [self getPieceWithCorrd:1 y:1];
                 if (!((start <= j && j <= end) || (end <= j && j <= start))) {
                     [ProgrammingException error:@"ループ変数がボードの範囲外"];
                 }
-                Piece *moved = [[self getPieceWithCorrd:i y:j] moveTo:target];
+                PieceBody *moved = [[[self getPieceWithCorrd:i y:j] getBody] moveTo:target];
                 // 移動のところバグあり。あとで直す
                 if (moved != nil) {
                     target = moved;
                 } else {
-                    [self setPieceWithCorrd:i y:j obj:[[Empty alloc] init]];
+                    [[self getPieceWithCorrd:i y:j] setBody:[[Empty alloc] init]];
                 }
             }
         }
     } else {
         // 横方向
         for (int j = 1; j != BOARD_SIZE-1; j++) {
-            Piece *target = [self getPieceWithCorrd:start-dx y:j];
+            PieceBody *target = [[self getPieceWithCorrd:start-dx y:j] getBody];
             for (int i = start; i != end; i += dx) {
-                [self getPieceWithCorrd:1 y:1];
                 if (!((start <= i && i <= end) || (end <= i && i <= start))) {
                     [ProgrammingException error:@"ループ変数がボードの範囲外"];
                 }
-                Piece *moved = [[self getPieceWithCorrd:i y:j] moveTo:target];
+                PieceBody *moved = [[[self getPieceWithCorrd:i y:j] getBody] moveTo:target];
                 if (moved != nil) {
                     target = moved;
                 } else {
-                    [self setPieceWithCorrd:i y:j obj:[[Empty alloc] init]];
+                    [[self getPieceWithCorrd:i y:j] setBody:[[Empty alloc] init]];
                 }
             }
         }

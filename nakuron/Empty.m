@@ -12,7 +12,7 @@
     return true;
 }
 
--(Piece*)moveTo:(Piece *)target {
+-(PieceBody*)moveTo:(PieceBody *)target {
     return nil;
 }
 
@@ -20,9 +20,12 @@
     return @"Emp";
 }
 
--(Piece*)init {
+-(NSString*)getImageFilneName {
+    return imageFileName;
+}
+
+-(PieceBody*)init {
     imageFileName = @"empty.png";
-    image = [UIImage imageNamed:imageFileName];
     return self;
 }
 

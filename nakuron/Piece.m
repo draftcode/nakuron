@@ -8,19 +8,8 @@
 
 @implementation Piece
 
--(Piece*)moveTo:(Piece *)target {
-    [ProgrammingException error:@"Piece.moveToをオーバーライドしていない"];
-    return nil;
-}
-
--(bool)waitFor:(Ball*)b {
-    [ProgrammingException error:@"Piece.waitForをオーバーライドしていない"];
-    return false;
-}
-
 -(NSString*)toString {
-    [ProgrammingException error:@"Piece.toStringをオーバーライドしていない"];
-    return nil;
+    return [body toString];
 }
 
 -(UIImageView*)getImageV {
@@ -36,9 +25,13 @@
     if (image) {
         return image;
     } else {
-        [ProgrammingException error:@"Piece.imageを上書きしていな"];
+        [ProgrammingException error:@"Piece.imageを上書きしていない"];
         return nil;
     }
+}
+
+-(void)updateImage {
+    imgv.image = [UIImage imageNamed:[body getImageFilneName]];
 }
 
 -(void)setFrame:(CGRect)frame {
@@ -47,6 +40,14 @@
 
 -(void)setImage:(UIImage *)img {
     imgv.image = img;
+}
+
+-(PieceBody*)getBody {
+    return body;
+}
+
+-(void)setBody:(PieceBody *)b {
+    body = b;
 }
 
 @end
