@@ -16,6 +16,9 @@
     PieceBody *body;
 }
 
+-(Piece*)moveTo:(Piece*)target;
+-(bool)waitFor:(Piece*)p;
+-(bool)canWaitFor;
 -(NSString*)toString;
 -(UIImage*)getImage;
 -(UIImageView*)getImageV;

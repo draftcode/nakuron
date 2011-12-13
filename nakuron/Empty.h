@@ -3,6 +3,7 @@
 //  nakuron
 //
 
+#import "Piece.h"
 #import "PieceBody.h"
 
 @interface Empty : PieceBody

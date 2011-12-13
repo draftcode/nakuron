@@ -5,8 +5,24 @@
 
 #import "Piece.h"
 #import "ProgrammingException.h"
+#import "Empty.h"
 
 @implementation Piece
+
+-(Piece*)moveTo:(Piece*)p {
+    if ([[self getBody] canMove] && [p waitFor:self]) {
+        [self setBody:[[Empty alloc] init]];
+    }
+    return nil;
+}
+
+-(bool)waitFor:(Piece*)p {
+    return [[self getBody] waitFor:p _self:self];
+}
+
+-(bool)canWaitFor {
+    return [[self getBody] canWaitFor];
+}
 
 -(NSString*)toString {
     return [body toString];

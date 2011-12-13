@@ -8,14 +8,21 @@
 
 @implementation PieceBody
 
--(PieceBody*)moveTo:(PieceBody *)target {
-    [ProgrammingException error:@"PieceBody.moveToをオーバーライドしていない"];
-    return nil;
-}
-
--(bool)waitFor:(Ball*)b {
+-(bool)waitFor:(Piece*)target _self:(Piece*)_self {
     [ProgrammingException error:@"PieceBody.waitForをオーバーライドしていない"];
     return false;
+}
+
+-(bool)canWaitFor {
+    return false;
+}
+
+-(bool)canMove {
+    return false;
+}
+
+-(Color*)getColor {
+    return nil;
 }
 
 -(NSString*)toString {

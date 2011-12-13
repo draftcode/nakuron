@@ -7,12 +7,17 @@
 
 @implementation Empty
 
--(bool)waitFor:(Ball*)b {
-    b = [self copy];
+-(bool)waitFor:(Piece*)target _self:(Piece*)_self {
+    // target の body は Ball のはず
+    [_self setBody:[target getBody]];
     return true;
 }
 
--(PieceBody*)moveTo:(PieceBody *)target {
+-(bool)canWaitFor {
+    return true;
+}
+
+-(PieceBody*)moveTo:(Piece *)target {
     return nil;
 }
 

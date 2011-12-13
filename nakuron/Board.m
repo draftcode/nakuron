@@ -116,34 +116,39 @@
     if (dx == 0) {
        // 縦方向
         for (int i = 1; i != BOARD_SIZE-1; i++) {
-            PieceBody *target = [[self getPieceWithCorrd:i y:start-dy] getBody];
             for (int j = start; j != end; j += dy) {
                 if (!((start <= j && j <= end) || (end <= j && j <= start))) {
                     [ProgrammingException error:@"ループ変数がボードの範囲外"];
                 }
-                PieceBody *moved = [[[self getPieceWithCorrd:i y:j] getBody] moveTo:target];
-                // 移動のところバグあり。あとで直す
-                if (moved != nil) {
-                    target = moved;
-                } else {
-                    [[self getPieceWithCorrd:i y:j] setBody:[[Empty alloc] init]];
+                int ty = j-dy;
+                Piece *target, *tmp;
+                target = tmp = [self getPieceWithCorrd:i y:ty];
+                while ([tmp canWaitFor]) {
+                    target = tmp;
+                    ty -= dy;
+                    if (!(0 <= ty && ty < BOARD_SIZE)) break;
+                    tmp = [self getPieceWithCorrd:i y:ty];
                 }
+                [[self getPieceWithCorrd:i y:j] moveTo:target];
             }
         }
     } else {
         // 横方向
         for (int j = 1; j != BOARD_SIZE-1; j++) {
-            PieceBody *target = [[self getPieceWithCorrd:start-dx y:j] getBody];
             for (int i = start; i != end; i += dx) {
                 if (!((start <= i && i <= end) || (end <= i && i <= start))) {
                     [ProgrammingException error:@"ループ変数がボードの範囲外"];
                 }
-                PieceBody *moved = [[[self getPieceWithCorrd:i y:j] getBody] moveTo:target];
-                if (moved != nil) {
-                    target = moved;
-                } else {
-                    [[self getPieceWithCorrd:i y:j] setBody:[[Empty alloc] init]];
+                int tx = i-dx;
+                Piece *target, *tmp;
+                target = tmp =[self getPieceWithCorrd:tx y:j];
+                while ([tmp canWaitFor]) {
+                    target = tmp;
+                    tx -= dx;
+                    if (!(0 <= tx && tx < BOARD_SIZE)) break;
+                    tmp = [self getPieceWithCorrd:tx y:j];
                 }
+                [[self getPieceWithCorrd:i y:j] moveTo:target];
             }
         }
     }
@@ -171,11 +176,3 @@
 }
 
 @end
-
-/*
- // こんな感じにすれば画像を表示できる
- UIImage *img = [UIImage imageNamed:@"sgreen.png"];
- UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(50,50,50,50)];
- imageview.image = img;
- [self.view addSubview:imageview];
- */

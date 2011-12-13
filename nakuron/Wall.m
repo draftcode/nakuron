@@ -7,12 +7,8 @@
 
 @implementation Wall
 
--(bool)waitFor:(Ball *)b {
+-(bool)waitFor:(Piece*)target _self:(Piece*)_self {
     return false;
-}
-
--(PieceBody*)moveTo:(PieceBody*)target {
-    return self;
 }
 
 -(NSString*)toString {

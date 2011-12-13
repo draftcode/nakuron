@@ -5,6 +5,7 @@
 
 #import "PieceBody.h"
 #import "Color.h"
+#import "Piece.h"
 
 @interface Hole : PieceBody {
 
@@ -12,7 +13,7 @@
     Color *color;
 }
 
--(Color*)getColor;
+//-(Color*)getColor;
 -(PieceBody*)initWithColor:(Color*)c;
 
 @end

@@ -8,16 +8,12 @@
 
 @implementation Ball
 
--(bool)waitFor:(Ball*)b {
+-(bool)waitFor:(Piece*)target _self:(Piece*)_self {
     return false;
 }
 
--(PieceBody*)moveTo:(PieceBody *)target {
-    if ([target waitFor:self]) {
-        return nil;
-    } else {
-        return self;
-    }
+-(bool)canMove {
+    return true;
 }
 
 -(NSString*)toString {
