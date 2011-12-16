@@ -26,7 +26,7 @@ typedef enum {
     int CELL_SIZE_PX;
 }
 
--(Board*)initWithSize:(int)size colors:(NSMutableArray*)colors;
+-(Board*)initWithSize:(int)size seed:(int)seed colors:(NSMutableArray*)colors;
 
 -(int)getBoardSize;
 

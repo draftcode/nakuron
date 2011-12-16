@@ -4,6 +4,7 @@
 //
 
 #import "nakuronViewController.h"
+#import "Lib.h"
 
 @implementation nakuronViewController
 
@@ -35,6 +36,12 @@
 {
     [super viewDidLoad];
 
+    SCREEN_WIDTH = [nakuronViewController getScreenWidth];
+    SCREEN_HEIGHT = [nakuronViewController getScreenHeight];
+    
+    // seed
+    int seed = arc4random() & 0x7FFFFFFF;
+
     // ステータスバーを消す。ここじゃなくて他のところに書くべき？
     // didFinishLaunchingWithOption とかに書くといいらしいけど、それどこ？
     //[UIApplication sharedApplication].statusBarHidden = YES;
@@ -46,8 +53,26 @@
         [colors insertObject:[[Color alloc] initWithColorName:cs[i]] atIndex:i];
     }
 
+    // seed 入力フォーム
+    seedField = [[UITextField alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-150, SCREEN_HEIGHT/10, 150, 30)];
+    seedField.keyboardType = UIKeyboardTypeNumberPad;
+    seedField.borderStyle = UITextBorderStyleRoundedRect;
+    seedField.clearButtonMode = UITextFieldViewModeAlways;
+    seedField.text = [NSString stringWithFormat:@"%d", seed];
+    [self.view addSubview:seedField];
+    
+    // seed 更新ボタン
+    seedUpdateButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    seedUpdateButton.frame = CGRectMake(SCREEN_WIDTH/2+20, SCREEN_HEIGHT/10, 100, 30);
+    [seedUpdateButton setTitle:@"seed変更" forState:UIControlStateNormal];
+    [seedUpdateButton setTitle:@"seed変更" forState:UIControlStateHighlighted];
+    [seedUpdateButton setTitle:@"seed変更" forState:UIControlStateDisabled];
+    // ボタンがタッチダウンされた時にhogeメソッドを呼び出す
+    [seedUpdateButton addTarget:self action:@selector(updateSeed:) forControlEvents:UIControlEventTouchDown];
+    [self.view addSubview:seedUpdateButton]; 
+
     // 盤初期化
-    board = [[Board alloc] initWithSize:8 colors:colors];
+    board = [[Board alloc] initWithSize:8 seed:seed colors:colors];
 
     // まず空のマスを描画
     [self showCells];
@@ -67,6 +92,16 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+// デリゲートまわりが謎
+//-(BOOL)textFieldShouldReturn:(UITextField*)textField{
+//    [seedField resignFirstResponder];
+//    return YES;
+//}
+
+-(void)updateSeed:(UIButton*)button {
+
 }
 
 -(void)show {

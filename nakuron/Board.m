@@ -10,6 +10,7 @@
 #import "Wall.h"
 #import "Hole.h"
 #import "ProgrammingException.h"
+#import "lib.h"
 
 @implementation Board
 
@@ -29,11 +30,14 @@
     NSLog(@"===================");
 }
 
--(Board*)initWithSize:(int)size colors:(NSMutableArray*)colors {
+-(Board*)initWithSize:(int)size seed:(int)seed colors:(NSMutableArray*)colors {
     score = 0;
-    CGFloat w = [nakuronViewController getScreenWidth];
-    CGFloat h = [nakuronViewController getScreenHeight];
+    CGFloat w = SCREEN_WIDTH;
+    CGFloat h = SCREEN_HEIGHT;
 
+    Xor128 *hash = [[Xor128 alloc] initWithSeed:seed];
+    int hole = 80, wall = 20;
+    
     // 盤面サイズ
     // (1,1) ... (BOARD_SIZE-2,BOARD_SIZE-2) が、球の存在しうる領域
     BOARD_SIZE = size + 2;
@@ -54,8 +58,6 @@
     // BOARD_SIZE = 240,
     // START_X = 40, START_Y = 120, END_X = 280, END_Y = 360,
 
-    srand(time(nil));
-
     // BOARD_SIZE ぶんの領域を確保して pieces を初期化
     pieces = [[NSMutableArray alloc] initWithCapacity:BOARD_SIZE];
     for (int i = 0; i < BOARD_SIZE; i++) {
@@ -70,15 +72,19 @@
                 if (i+j == 0 || i+j == BOARD_SIZE-1 || i+j == 2*(BOARD_SIZE-1)) {
                     body = [[Wall alloc] init];
                 } else {
-                    body = [[Hole alloc]
-                            initWithColor:[colors objectAtIndex:rand()%[colors count]]];
+                    if ([hash getInt] % 100 < hole) {
+                        body = [[Hole alloc]
+                                initWithColor:[colors objectAtIndex:[hash getInt]%[colors count]]];
+                    } else {
+                        body = [[Wall alloc] init];
+                    }
                 }
             } else {
-                if ((rand() % [colors count]) == 0) {
+                if ([hash getInt] % 100 < wall) {
                     body = [[Wall alloc] init];
                 } else {
                     body = [[Ball alloc]
-                            initWithColor:[colors objectAtIndex:rand()%[colors count]]];
+                            initWithColor:[colors objectAtIndex:[hash getInt]%[colors count]]];
                 }
             }
             p = [Piece alloc];

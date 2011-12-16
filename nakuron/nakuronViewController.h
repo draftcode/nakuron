@@ -13,6 +13,8 @@
 @private
     Board *board;
     NSMutableArray *colors;
+    UITextField *seedField;
+    UIButton *seedUpdateButton;
 }
 
 +(CGFloat)getScreenWidth;
