@@ -16,6 +16,7 @@
         // ここでスコアアップの処理とか。効果音？
         NSString *str = [NSString stringWithFormat:@"%@,同じ色の穴に落ちた\n",[c getName]];
         NSLog(@"%@", str);
+        [[target getBody] dealloc];
     } else {
         // 効果音？
     }
