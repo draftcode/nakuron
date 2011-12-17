@@ -85,7 +85,6 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -94,14 +93,13 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-// デリゲートまわりが謎
-//-(BOOL)textFieldShouldReturn:(UITextField*)textField{
-//    [seedField resignFirstResponder];
-//    return YES;
-//}
-
 -(void)updateSeed:(UIButton*)button {
-
+    int seed = [seedField.text intValue];
+    [seedField resignFirstResponder];
+    [board dealloc];
+    board = [[Board alloc] initWithSize:8 seed:seed colors:colors];
+    [self showCells];
+    [self show];
 }
 
 -(void)show {
