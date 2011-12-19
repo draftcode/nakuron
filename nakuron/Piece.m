@@ -9,6 +9,13 @@
 
 @implementation Piece
 
+-(void)dealloc {
+    [image release];
+    [imgv release];
+    [body release];
+    [super dealloc];
+}
+
 -(Piece*)moveTo:(Piece*)p {
     if ([[self getBody] canMove] && [p waitFor:self]) {
         [self setBody:[[Empty alloc] init]];

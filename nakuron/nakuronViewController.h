@@ -17,9 +17,7 @@
     UIButton *seedUpdateButton;
 }
 
-+(CGFloat)getScreenWidth;
-+(CGFloat)getScreenHeight;
-
+-(void)initBoard:(int)seed;
 -(void)show;
 -(void)showCells;
 

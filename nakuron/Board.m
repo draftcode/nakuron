@@ -14,6 +14,11 @@
 
 @implementation Board
 
+-(void)dealloc {
+    [pieces release];
+    [super dealloc];
+}
+
 -(void)setPieceWithCorrd:(int)x y:(int)y obj:(id)obj{
     [[pieces objectAtIndex:x] replaceObjectAtIndex:y withObject:obj];
 }
@@ -35,7 +40,7 @@
     CGFloat w = SCREEN_WIDTH;
     CGFloat h = SCREEN_HEIGHT;
 
-    Xor128 *hash = [[Xor128 alloc] initWithSeed:seed];
+    Xor128 *hash = [[[Xor128 alloc] initWithSeed:seed] autorelease];
     int hole = 80, wall = 20;
     
     // 盤面サイズ

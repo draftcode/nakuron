@@ -2,13 +2,14 @@
 //  Lib.m
 //  nakuron
 //
-//  Created by Daisuke Matsumoto on 11/12/17.
-//  Copyright (c) 2011年 __MyCompanyName__. All rights reserved.
-//
 
 #import "Lib.h"
 
 @implementation Xor128
+
+-(void)dealloc {
+    [super dealloc];
+}
 
 -(Xor128*)initWithSeed:(int)seed {
     x = 123456789, y = 362436069, z = 521288629, w = seed;

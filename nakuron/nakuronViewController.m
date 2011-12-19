@@ -8,15 +8,10 @@
 
 @implementation nakuronViewController
 
-+(CGFloat)getScreenWidth {
-    return [[UIScreen mainScreen] bounds].size.width;
-}
-+(CGFloat)getScreenHeight {
-    return [[UIScreen mainScreen] bounds].size.height;
-}
-
 - (void)dealloc
 {
+    [board release];
+    [colors release];
     [super dealloc];
 }
 
@@ -36,22 +31,19 @@
 {
     [super viewDidLoad];
 
-    SCREEN_WIDTH = [nakuronViewController getScreenWidth];
-    SCREEN_HEIGHT = [nakuronViewController getScreenHeight];
+    SCREEN_WIDTH = [[UIScreen mainScreen] bounds].size.width;
+    SCREEN_HEIGHT = [[UIScreen mainScreen] bounds].size.height;
     
-    // seed
-    int seed = arc4random() & 0x7FFFFFFF;
-
-    // ステータスバーを消す。ここじゃなくて他のところに書くべき？
-    // didFinishLaunchingWithOption とかに書くといいらしいけど、それどこ？
-    //[UIApplication sharedApplication].statusBarHidden = YES;
-
+    // 色の定義
     int colorNum = 4;
     NSString *cs[] = {@"red", @"blue", @"yellow", @"green"};
     colors = [[NSMutableArray alloc] initWithCapacity:colorNum];
     for (int i = 0; i < colorNum; i++) {
         [colors insertObject:[[Color alloc] initWithColorName:cs[i]] atIndex:i];
     }
+    
+    // seed
+    int seed = arc4random() & 0x7FFFFFFF;
 
     // seed 入力フォーム
     seedField = [[UITextField alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-150, SCREEN_HEIGHT/10, 150, 30)];
@@ -67,18 +59,11 @@
     [seedUpdateButton setTitle:@"seed変更" forState:UIControlStateNormal];
     [seedUpdateButton setTitle:@"seed変更" forState:UIControlStateHighlighted];
     [seedUpdateButton setTitle:@"seed変更" forState:UIControlStateDisabled];
-    // ボタンがタッチダウンされた時にhogeメソッドを呼び出す
     [seedUpdateButton addTarget:self action:@selector(updateSeed:) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:seedUpdateButton]; 
 
-    // 盤初期化
-    board = [[Board alloc] initWithSize:8 seed:seed colors:colors];
-
-    // まず空のマスを描画
-    [self showCells];
-
-    // 球を描画
-    [self show];
+    // 盤面表示
+    [self initBoard:seed];
 }
 //*/
 
@@ -93,13 +78,20 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+-(void)initBoard:(int)seed {
+    // 盤初期化
+    board = [[Board alloc] initWithSize:8 seed:seed colors:colors];
+    // まず空のマスを描画
+    [self showCells];
+    // 球を描画
+    [self show];
+}
+
 -(void)updateSeed:(UIButton*)button {
     int seed = [seedField.text intValue];
     [seedField resignFirstResponder];
-    [board dealloc];
-    board = [[Board alloc] initWithSize:8 seed:seed colors:colors];
-    [self showCells];
-    [self show];
+    [board release];
+    [self initBoard:seed];
 }
 
 -(void)show {

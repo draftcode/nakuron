@@ -8,6 +8,11 @@
 
 @implementation PieceBody
 
+-(void)dealloc {
+    [imageFileName release];
+    [super dealloc];
+}
+
 -(bool)waitFor:(Piece*)target _self:(Piece*)_self {
     [ProgrammingException error:@"PieceBody.waitForをオーバーライドしていない"];
     return false;

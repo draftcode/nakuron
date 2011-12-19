@@ -8,6 +8,11 @@
 
 @implementation Ball
 
+-(void)dealloc {
+//    [color release];
+    [super dealloc];
+}
+
 -(bool)waitFor:(Piece*)target _self:(Piece*)_self {
     return false;
 }
