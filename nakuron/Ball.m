@@ -4,14 +4,12 @@
 //
 
 #import "Ball.h"
-#import "Empty.h"
+#import "Color.h"
 
 @implementation Ball
 
--(void)dealloc {
-  [color release];
-  [imageFileName release];
-  [super dealloc];
++(Ball*)ballWithColor:(Color *)c {
+  return [[[Ball alloc] initWithColor:c] autorelease];
 }
 
 -(bool)waitFor:(Piece*)target _self:(Piece*)_self {
@@ -22,21 +20,13 @@
   return true;
 }
 
--(NSString*)toString {
-  return [color getName];
+-(NSString*)description {
+  return self.color.name;
 }
 
--(NSString*)getImageFilneName {
-  return imageFileName;
-}
-
--(Color*)getColor {
-  return color;
-}
-
--(PieceBody*)initWithColor:(Color*)c {
-  color = [c retain];
-  imageFileName = [[NSString alloc] initWithFormat:@"b%@.png",[c getName]];
+-(Ball*)initWithColor:(Color*)c {
+  self = (Ball*)[super initWithColor:c
+                    andImageFileName:[NSString stringWithFormat:@"b%@.png", c.name]];
   return self;
 }
 

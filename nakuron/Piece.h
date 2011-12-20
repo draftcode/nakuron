@@ -4,28 +4,29 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Color.h"
-#import "PieceBody.h"
 
-@class Ball;
+@class PieceBody;
 
 @interface Piece : NSObject {
 @private
-  UIImage *image;
-  UIImageView *imgv;
-  PieceBody *body;
+  UIImageView *imageView;
+  PieceBody* body;
 }
+
+@property (nonatomic, retain) PieceBody* body;
+@property (nonatomic, readonly) UIImageView* imageView;
+
++(Piece*)pieceWithFrame:(CGRect)aFrame
+                  image:(UIImage*)anImage
+              pieceBody:(PieceBody*)aBody;
+
+-(Piece*)initWithFrame:(CGRect)aFrame
+                 image:(UIImage*)anImage
+             pieceBody:(PieceBody*)aBody;
 
 -(Piece*)moveTo:(Piece*)target;
 -(bool)waitFor:(Piece*)p;
 -(bool)canWaitFor;
--(NSString*)toString;
--(UIImage*)getImage;
--(UIImageView*)getImageV;
--(void)setImage:(UIImage*)img;
 -(void)updateImage;
--(void)setFrame:(CGRect)frame;
--(PieceBody*)getBody;
--(void)setBody:(PieceBody*)b;
 
 @end

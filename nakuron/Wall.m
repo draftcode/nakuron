@@ -7,20 +7,21 @@
 
 @implementation Wall
 
++(Wall*)wall {
+  return [[[Wall alloc] init] autorelease];
+}
+
 -(bool)waitFor:(Piece*)target _self:(Piece*)_self {
   return false;
 }
 
--(NSString*)toString {
+-(NSString*)description {
   return @"Wall";
 }
 
--(NSString*)getImageFilneName {
-  return imageFileName;
-}
-
--(PieceBody*)init {
-  imageFileName = @"wall.png";
+-(Wall*)init {
+  self = (Wall*)[super initWithColor:nil
+                    andImageFileName:@"wall.png"];
   return self;
 }
 

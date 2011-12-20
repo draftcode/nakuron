@@ -10,8 +10,9 @@
   NSString* name;
 }
 
--(id)initWithColorName:(NSString*)n;
+@property (nonatomic, readonly) NSString* name;
 
--(id)getName;
++(Color*)colorWithColorName:(NSString*)n;
+-(Color*)initWithColorName:(NSString*)n;
 
 @end

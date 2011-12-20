@@ -3,11 +3,11 @@
 //  nakuron
 //
 
-#import <Foundation/Foundation.h>
 #import "PieceBody.h"
 
 @interface Wall : PieceBody
 
--(PieceBody*)init;
++(Wall*)wall;
+-(Wall*)init;
 
 @end

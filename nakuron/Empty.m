@@ -4,12 +4,17 @@
 //
 
 #import "Empty.h"
+#import "Piece.h"
 
 @implementation Empty
 
++(Empty*)empty {
+  return [[[Empty alloc] init] autorelease];
+}
+
 -(bool)waitFor:(Piece*)target _self:(Piece*)_self {
   // target の body は Ball のはず
-  [_self setBody:[target getBody]];
+  [_self setBody:target.body];
   return true;
 }
 
@@ -17,20 +22,13 @@
   return true;
 }
 
--(PieceBody*)moveTo:(Piece *)target {
-  return nil;
-}
-
--(NSString*)toString {
+-(NSString*)description {
   return @"Emp";
 }
 
--(NSString*)getImageFilneName {
-  return imageFileName;
-}
-
--(PieceBody*)init {
-  imageFileName = @"empty.png";
+-(Empty*)init {
+  self = (Empty*)[super initWithColor:nil
+                     andImageFileName:@"empty.png"];
   return self;
 }
 

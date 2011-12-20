@@ -4,14 +4,11 @@
 //
 
 #import "PieceBody.h"
-#import "Color.h"
+@class Color;
 
-@interface Ball : PieceBody {
-@private
-  Color *color;
-}
+@interface Ball : PieceBody
 
-//-(Color*)getColor;
--(PieceBody*)initWithColor:(Color*)c;
++(Ball*)ballWithColor:(Color*)c;
+-(Ball*)initWithColor:(Color*)c;
 
 @end
