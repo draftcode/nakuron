@@ -9,34 +9,34 @@
 @implementation Ball
 
 -(void)dealloc {
-//    [color release];
-    [super dealloc];
+  //    [color release];
+  [super dealloc];
 }
 
 -(bool)waitFor:(Piece*)target _self:(Piece*)_self {
-    return false;
+  return false;
 }
 
 -(bool)canMove {
-    return true;
+  return true;
 }
 
 -(NSString*)toString {
-    return [color getName];
+  return [color getName];
 }
 
 -(NSString*)getImageFilneName {
-    return imageFileName;
+  return imageFileName;
 }
 
 -(Color*)getColor {
-    return color;
+  return color;
 }
 
 -(PieceBody*)initWithColor:(Color*)c {
-    color = c;
-    imageFileName = [[NSString alloc] initWithFormat:@"b%@.png",[c getName]];
-    return self;
+  color = c;
+  imageFileName = [[NSString alloc] initWithFormat:@"b%@.png",[c getName]];
+  return self;
 }
 
 @end

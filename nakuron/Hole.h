@@ -10,7 +10,7 @@
 @interface Hole : PieceBody {
 
 @private
-    Color *color;
+  Color *color;
 }
 
 //-(Color*)getColor;

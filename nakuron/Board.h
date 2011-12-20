@@ -8,22 +8,22 @@
 #import "Ball.h"
 
 typedef enum {
-    LEFT,
-    UP,
-    RIGHT,
-    DOWN
+  LEFT,
+  UP,
+  RIGHT,
+  DOWN
 } Direction;
 
 @interface Board : NSObject {
 @private
-    int score;
-    NSMutableArray *pieces;
+  int score;
+  NSMutableArray *pieces;
 
-@public   
-    int BOARD_SIZE;
-    int BOARD_SIZE_PX;
-    int START_X_PX, START_Y_PX, END_X_PX, END_Y_PX;
-    int CELL_SIZE_PX;
+@public
+  int BOARD_SIZE;
+  int BOARD_SIZE_PX;
+  int START_X_PX, START_Y_PX, END_X_PX, END_Y_PX;
+  int CELL_SIZE_PX;
 }
 
 -(Board*)initWithSize:(int)size seed:(int)seed colors:(NSMutableArray*)colors;

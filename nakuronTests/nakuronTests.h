@@ -11,7 +11,7 @@
 
 @interface nakuronTests : SenTestCase {
 @private
-    
+
 }
 
 @end

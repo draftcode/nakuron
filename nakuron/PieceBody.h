@@ -12,7 +12,7 @@
 
 @interface PieceBody : NSObject {
 @protected
-    NSString *imageFileName;
+  NSString *imageFileName;
 }
 
 -(bool)waitFor:(Piece*)target _self:(Piece*)_self;

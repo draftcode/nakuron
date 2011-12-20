@@ -11,9 +11,9 @@
 
 @interface Piece : NSObject {
 @private
-    UIImage *image;
-    UIImageView *imgv;
-    PieceBody *body;
+  UIImage *image;
+  UIImageView *imgv;
+  PieceBody *body;
 }
 
 -(Piece*)moveTo:(Piece*)target;

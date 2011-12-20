@@ -9,35 +9,35 @@
 @implementation PieceBody
 
 -(void)dealloc {
-    [imageFileName release];
-    [super dealloc];
+  [imageFileName release];
+  [super dealloc];
 }
 
 -(bool)waitFor:(Piece*)target _self:(Piece*)_self {
-    [ProgrammingException error:@"PieceBody.waitForをオーバーライドしていない"];
-    return false;
+  [ProgrammingException error:@"PieceBody.waitForをオーバーライドしていない"];
+  return false;
 }
 
 -(bool)canWaitFor {
-    return false;
+  return false;
 }
 
 -(bool)canMove {
-    return false;
+  return false;
 }
 
 -(Color*)getColor {
-    return nil;
+  return nil;
 }
 
 -(NSString*)toString {
-    [ProgrammingException error:@"PieceBody.toStringをオーバーライドしていない"];
-    return nil;
+  [ProgrammingException error:@"PieceBody.toStringをオーバーライドしていない"];
+  return nil;
 }
 
 -(NSString*)getImageFilneName {
-    [ProgrammingException error:@"PieceBody.getImageFileNameをオーバーライドしていない"];
-    return nil;
+  [ProgrammingException error:@"PieceBody.getImageFileNameをオーバーライドしていない"];
+  return nil;
 }
 
 @end

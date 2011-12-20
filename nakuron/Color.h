@@ -7,7 +7,7 @@
 
 @interface Color : NSObject {
 @private
-    NSString* name;
+  NSString* name;
 }
 
 -(id)initWithColorName:(NSString*)n;

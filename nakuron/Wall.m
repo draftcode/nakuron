@@ -8,20 +8,20 @@
 @implementation Wall
 
 -(bool)waitFor:(Piece*)target _self:(Piece*)_self {
-    return false;
+  return false;
 }
 
 -(NSString*)toString {
-    return @"Wall";
+  return @"Wall";
 }
 
 -(NSString*)getImageFilneName {
-    return imageFileName;
+  return imageFileName;
 }
 
 -(PieceBody*)init {
-    imageFileName = @"wall.png";
-    return self;
+  imageFileName = @"wall.png";
+  return self;
 }
 
 @end

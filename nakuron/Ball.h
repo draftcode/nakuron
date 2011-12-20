@@ -8,7 +8,7 @@
 
 @interface Ball : PieceBody {
 @private
-    Color *color;
+  Color *color;
 }
 
 //-(Color*)getColor;

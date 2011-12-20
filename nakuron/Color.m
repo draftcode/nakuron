@@ -8,17 +8,17 @@
 @implementation Color
 
 -(void)dealloc {
-    [name release];
-    [super dealloc];
+  [name release];
+  [super dealloc];
 }
 
 -(id)initWithColorName:(NSString*)n {
-    name = [n copy];
-    return self;
+  name = [n copy];
+  return self;
 }
 
 -(id)getName {
-    return name;
+  return name;
 }
 
 @end

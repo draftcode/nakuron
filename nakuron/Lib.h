@@ -8,7 +8,7 @@
 int SCREEN_WIDTH, SCREEN_HEIGHT;
 
 @interface Xor128 : NSObject {
-    int x, y, z, w;
+  int x, y, z, w;
 }
 
 -(Xor128*)initWithSeed:(int)seed;
