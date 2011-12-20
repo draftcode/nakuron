@@ -17,18 +17,18 @@
 }
 
 -(Piece*)moveTo:(Piece*)p {
-  if ([[self getBody] canMove] && [p waitFor:self]) {
-    [self setBody:[[Empty alloc] init]];
+  if ([body canMove] && [p waitFor:self]) {
+    [self setBody:[[[Empty alloc] init] autorelease]];
   }
   return nil;
 }
 
 -(bool)waitFor:(Piece*)p {
-  return [[self getBody] waitFor:p _self:self];
+  return [body waitFor:p _self:self];
 }
 
 -(bool)canWaitFor {
-  return [[self getBody] canWaitFor];
+  return [body canWaitFor];
 }
 
 -(NSString*)toString {
@@ -58,6 +58,7 @@
 }
 
 -(void)setFrame:(CGRect)frame {
+  [imgv autorelease];
   imgv = [[UIImageView alloc] initWithFrame:frame];
 }
 
@@ -70,7 +71,8 @@
 }
 
 -(void)setBody:(PieceBody *)b {
-  body = b;
+  [body autorelease];
+  body = [b retain];
 }
 
 @end

@@ -9,7 +9,6 @@
 @implementation PieceBody
 
 -(void)dealloc {
-  [imageFileName release];
   [super dealloc];
 }
 
