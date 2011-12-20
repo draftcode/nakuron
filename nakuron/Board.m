@@ -26,7 +26,7 @@
 -(void)dump {
   NSLog(@"===================");
   for (int i = 0; i < BOARD_SIZE; i++) {
-    NSMutableString *s = [NSMutableString stringWithFormat:@""];
+    NSMutableString *s = [NSMutableString string];
     for (int j = 0; j < BOARD_SIZE; j++) {
       [s appendFormat:@"%@,",[[[self getPieceWithCorrd:j y:i] toString] substringToIndex:1]];
     }
@@ -35,7 +35,7 @@
   NSLog(@"===================");
 }
 
--(Board*)initWithSize:(int)size seed:(int)seed colors:(NSMutableArray*)colors {
+-(Board*)initWithSize:(int)size seed:(int)seed colors:(NSArray*)colors {
   score = 0;
   CGFloat w = SCREEN_WIDTH;
   CGFloat h = SCREEN_HEIGHT;
@@ -67,10 +67,9 @@
   pieces = [[NSMutableArray alloc] initWithCapacity:BOARD_SIZE];
   for (int i = 0; i < BOARD_SIZE; i++) {
     // pieces[i] を初期化
-    [pieces insertObject:[[NSMutableArray alloc] initWithCapacity:BOARD_SIZE] atIndex:i];
+    NSMutableArray* row = [NSMutableArray arrayWithCapacity:BOARD_SIZE];
     for (int j = 0; j < BOARD_SIZE; j++) {
       // pieces[i][j] を初期化
-      Piece *p;
       PieceBody *body;
       if (i == 0 || j == 0 || i == BOARD_SIZE-1 || j == BOARD_SIZE-1) {
         // 4隅
@@ -92,12 +91,14 @@
                   initWithColor:[colors objectAtIndex:[hash getInt]%[colors count]]];
         }
       }
-      p = [Piece alloc];
+      [body autorelease];
+      Piece *p = [[[Piece alloc] init] autorelease];
       [p setFrame:[self getCoordPxWithCoord:i y:j]];
       [p setImage:[UIImage imageNamed:[body getImageFilneName]]];
       [p setBody:body];
-      [[pieces objectAtIndex:i] addObject:p];
+      [row addObject:p];
     }
+    [pieces addObject:row];
   }
 
   return self;

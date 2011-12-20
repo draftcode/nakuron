@@ -10,8 +10,11 @@
 
 - (void)dealloc
 {
+    [seedField release];
+    [seedUpdateButton release];
     [board release];
     [colors release];
+
     [super dealloc];
 }
 
@@ -37,10 +40,11 @@
     // 色の定義
     int colorNum = 4;
     NSString *cs[] = {@"red", @"blue", @"yellow", @"green"};
-    colors = [[NSMutableArray alloc] initWithCapacity:colorNum];
+    NSMutableArray* tmpColors = [NSMutableArray arrayWithCapacity:colorNum];
     for (int i = 0; i < colorNum; i++) {
-        [colors insertObject:[[Color alloc] initWithColorName:cs[i]] atIndex:i];
+        [tmpColors addObject:[[[Color alloc] initWithColorName:cs[i]] autorelease]];
     }
+    colors = [tmpColors retain];
     
     // seed
     int seed = arc4random() & 0x7FFFFFFF;
@@ -54,7 +58,7 @@
     [self.view addSubview:seedField];
     
     // seed 更新ボタン
-    seedUpdateButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    seedUpdateButton = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
     seedUpdateButton.frame = CGRectMake(SCREEN_WIDTH/2+20, SCREEN_HEIGHT/10, 100, 30);
     [seedUpdateButton setTitle:@"seed変更" forState:UIControlStateNormal];
     [seedUpdateButton setTitle:@"seed変更" forState:UIControlStateHighlighted];
@@ -107,8 +111,8 @@
     for (int i = 0; i < [board getBoardSize]; i++) {
         for (int j = 0; j < [board getBoardSize]; j++) {
             CGRect frame = [board getCoordPxWithCoord:i y:j];
-            UIImageView *imgs = [[UIImageView alloc]
-                                 initWithFrame:frame];
+            UIImageView *imgs = [[[UIImageView alloc]
+                                 initWithFrame:frame] autorelease];
             imgs.image = [UIImage imageNamed:@"sempty.png"];
             [self.view addSubview:imgs];
             [self.view addSubview:[[board getPieceWithCorrd:i y:j] getImageV]];

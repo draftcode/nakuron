@@ -9,7 +9,8 @@
 @implementation Ball
 
 -(void)dealloc {
-  //    [color release];
+  [color release];
+  [imageFileName release];
   [super dealloc];
 }
 
@@ -34,7 +35,7 @@
 }
 
 -(PieceBody*)initWithColor:(Color*)c {
-  color = c;
+  color = [c retain];
   imageFileName = [[NSString alloc] initWithFormat:@"b%@.png",[c getName]];
   return self;
 }

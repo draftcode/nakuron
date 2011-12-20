@@ -12,7 +12,7 @@
 @interface nakuronViewController : UIViewController {
 @private
     Board *board;
-    NSMutableArray *colors;
+    NSArray *colors;
     UITextField *seedField;
     UIButton *seedUpdateButton;
 }
