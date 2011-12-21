@@ -26,6 +26,8 @@ typedef enum {
   int CELL_SIZE_PX;
 }
 
+-(void)dump;
+
 -(Board*)initWithSize:(int)size seed:(int)seed colors:(NSArray*)colors;
 
 -(int)getBoardSize;

@@ -46,6 +46,7 @@
 		23A895521481595900D42AA1 /* arrow-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 23A8954E1481595900D42AA1 /* arrow-up.png */; };
 		23A895531481595900D42AA1 /* arrow-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 23A8954F1481595900D42AA1 /* arrow-left.png */; };
 		23A89557148177AC00D42AA1 /* Piece.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A89556148177AC00D42AA1 /* Piece.m */; };
+		23FA7DB614A26BA700145794 /* NSString+Repeat.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FA7DB514A26BA700145794 /* NSString+Repeat.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,8 @@
 		23A8954F1481595900D42AA1 /* arrow-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-left.png"; sourceTree = "<group>"; };
 		23A89555148177AC00D42AA1 /* Piece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Piece.h; sourceTree = "<group>"; };
 		23A89556148177AC00D42AA1 /* Piece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Piece.m; sourceTree = "<group>"; };
+		23FA7DB414A26BA700145794 /* NSString+Repeat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Repeat.h"; sourceTree = "<group>"; };
+		23FA7DB514A26BA700145794 /* NSString+Repeat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Repeat.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +198,8 @@
 				23A415B01484C5FE0065D461 /* ProgrammingException.h */,
 				23A415B11484C5FE0065D461 /* ProgrammingException.m */,
 				232601DB1456EE0300A42BC0 /* nakuronViewController.xib */,
+				23FA7DB414A26BA700145794 /* NSString+Repeat.h */,
+				23FA7DB514A26BA700145794 /* NSString+Repeat.m */,
 				2316EC19149BE11A0008B4BA /* Lib.h */,
 				2316EC1A149BE11A0008B4BA /* Lib.m */,
 				232601CA1456EE0300A42BC0 /* Supporting Files */,
@@ -382,6 +387,7 @@
 				23A415B21484C5FE0065D461 /* ProgrammingException.m in Sources */,
 				230ACBE4148A987A002CA7E7 /* PieceBody.m in Sources */,
 				2316EC1B149BE11A0008B4BA /* Lib.m in Sources */,
+				23FA7DB614A26BA700145794 /* NSString+Repeat.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

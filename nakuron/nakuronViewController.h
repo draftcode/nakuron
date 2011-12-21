@@ -9,13 +9,18 @@
 
 @interface nakuronViewController : UIViewController {
 @private
-    Board *board;
-    NSArray *colors;
-    UITextField *seedField;
+  int seed;
+  Board *board;
+  NSArray *colors;
+  UITextField *seedField;
+
+  UIButton *leftButton, *upButton, *downButton, *rightButton;
 }
 
--(void)initBoard:(int)seed;
--(void)show;
+-(void)initBoard;
+-(void)showFeeds;
 -(void)showCells;
+-(void)showButtons;
+-(void)showMap;
 
 @end
