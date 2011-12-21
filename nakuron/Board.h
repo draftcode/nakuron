@@ -4,8 +4,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Piece.h"
-#import "Ball.h"
+
+@class Piece;
 
 typedef enum {
   LEFT,
@@ -17,7 +17,7 @@ typedef enum {
 @interface Board : NSObject {
 @private
   int score;
-  NSMutableArray *pieces;
+  NSArray *pieces;
 
 @public
   int BOARD_SIZE;
@@ -31,8 +31,6 @@ typedef enum {
 -(int)getBoardSize;
 
 -(void)updatePieces;
-
--(id)getPieces;
 
 -(void)move:(Direction)d;
 

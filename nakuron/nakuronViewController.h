@@ -5,16 +5,13 @@
 
 #import <UIKit/UIKit.h>
 
-#import "Board.h"
-#import "Ball.h"
-#import "Color.h"
+@class Board;
 
 @interface nakuronViewController : UIViewController {
 @private
     Board *board;
     NSArray *colors;
     UITextField *seedField;
-    UIButton *seedUpdateButton;
 }
 
 -(void)initBoard:(int)seed;

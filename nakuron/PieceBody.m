@@ -4,16 +4,30 @@
 //
 
 #import "PieceBody.h"
-#import "ProgrammingException.h"
+
 
 @implementation PieceBody
 
+@synthesize color;
+@synthesize imageFileName;
+
 -(void)dealloc {
+  [color release];
+  [imageFileName release];
   [super dealloc];
 }
 
+-(PieceBody*)initWithColor:(Color *)aColor
+          andImageFileName:(NSString *)anImageFileName {
+  self = [super init];
+  if (self) {
+    color = [aColor retain];
+    imageFileName = [anImageFileName copy];
+  }
+  return self;
+}
+
 -(bool)waitFor:(Piece*)target _self:(Piece*)_self {
-  [ProgrammingException error:@"PieceBody.waitForをオーバーライドしていない"];
   return false;
 }
 
@@ -23,20 +37,6 @@
 
 -(bool)canMove {
   return false;
-}
-
--(Color*)getColor {
-  return nil;
-}
-
--(NSString*)toString {
-  [ProgrammingException error:@"PieceBody.toStringをオーバーライドしていない"];
-  return nil;
-}
-
--(NSString*)getImageFilneName {
-  [ProgrammingException error:@"PieceBody.getImageFileNameをオーバーライドしていない"];
-  return nil;
 }
 
 @end

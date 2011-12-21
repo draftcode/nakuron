@@ -7,18 +7,23 @@
 
 @implementation Color
 
+@synthesize name;
+
++(Color*)colorWithColorName:(NSString *)n {
+  return [[[Color alloc] initWithColorName:n] autorelease];
+}
+
 -(void)dealloc {
   [name release];
   [super dealloc];
 }
 
--(id)initWithColorName:(NSString*)n {
-  name = [n copy];
+-(Color*)initWithColorName:(NSString*)n {
+  self = (Color*)[super init];
+  if (self) {
+    name = [n copy];
+  }
   return self;
-}
-
--(id)getName {
-  return name;
 }
 
 @end

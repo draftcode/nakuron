@@ -4,23 +4,21 @@
 //
 
 #import "Hole.h"
-#import "ProgrammingException.h"
 #import "Piece.h"
+#import "Color.h"
 
 @implementation Hole
 
--(void)dealloc {
-  [color release];
-  [imageFileName release];
-  [super dealloc];
++(Hole*)holeWithColor:(Color *)c {
+  return [[[Hole alloc] initWithColor:c] autorelease];
 }
 
 -(bool)waitFor:(Piece*)target _self:(Piece*)_self {
   // target の body は Ball のはず
-  Color *c;
-  if (((c = [[target getBody] getColor]) != nil) && (c == [[_self getBody] getColor])) {
+  Color *c = target.body.color;
+  if ((c != nil) && (c == _self.body.color)) {
     // ここでスコアアップの処理とか。効果音？
-    NSString *str = [NSString stringWithFormat:@"%@,同じ色の穴に落ちた\n",[c getName]];
+    NSString *str = [NSString stringWithFormat:@"%@,同じ色の穴に落ちた\n", c.name];
     NSLog(@"%@", str);
     // TODO(halwhite): OK??
     // [[target getBody] release];
@@ -34,22 +32,14 @@
   return true;
 }
 
--(NSString*)toString {
-  return [[color getName] capitalizedString];
+-(NSString*)description {
+  return [self.color.name capitalizedString];
 }
 
--(NSString*)getImageFilneName {
-  return imageFileName;
-}
-
--(PieceBody*)initWithColor:(Color*)c {
-  color = [c retain];
-  imageFileName = [[NSString alloc] initWithFormat:@"h%@.png",[c getName]];
+-(Hole*)initWithColor:(Color*)c {
+  self = (Hole*)[super initWithColor:c
+                    andImageFileName:[NSString stringWithFormat:@"h%@.png", c.name]];
   return self;
-}
-
--(Color*)getColor {
-  return color;
 }
 
 @end

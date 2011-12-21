@@ -11,11 +11,13 @@ int SCREEN_WIDTH, SCREEN_HEIGHT;
   int x, y, z, w;
 }
 
++(Xor128*)xor128WithSeed:(int)seed;
 -(Xor128*)initWithSeed:(int)seed;
 -(int)getInt;
 
-@end
-
-@interface Lib : NSObject
+// [0, to)
+-(int)randomInt:(int)to;
+// [from, to]
+-(int)randomIntFrom:(int)from to:(int)to;
 
 @end

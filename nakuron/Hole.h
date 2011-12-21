@@ -4,16 +4,11 @@
 //
 
 #import "PieceBody.h"
-#import "Color.h"
-#import "Piece.h"
+@class Color;
 
-@interface Hole : PieceBody {
+@interface Hole : PieceBody
 
-@private
-  Color *color;
-}
-
-//-(Color*)getColor;
--(PieceBody*)initWithColor:(Color*)c;
++(Hole*)holeWithColor:(Color*)c;
+-(Hole*)initWithColor:(Color*)c;
 
 @end

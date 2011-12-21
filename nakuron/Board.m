@@ -10,7 +10,9 @@
 #import "Wall.h"
 #import "Hole.h"
 #import "ProgrammingException.h"
-#import "lib.h"
+#import "Lib.h"
+#import "NSString+Repeat.h"
+#import "Piece.h"
 
 @implementation Board
 
@@ -24,15 +26,17 @@
 }
 
 -(void)dump {
-  NSLog(@"===================");
+  NSString* line = [@"=" repeatTimes:(BOARD_SIZE * 3) - 2];
+  NSLog(@"%@", line);
   for (int i = 0; i < BOARD_SIZE; i++) {
-    NSMutableString *s = [NSMutableString string];
+    NSMutableArray* a = [NSMutableArray arrayWithCapacity:BOARD_SIZE];
     for (int j = 0; j < BOARD_SIZE; j++) {
-      [s appendFormat:@"%@,",[[[self getPieceWithCorrd:j y:i] toString] substringToIndex:1]];
+      [a addObject:[[[self getPieceWithCorrd:j y:i] description] substringToIndex:1]];
     }
-    NSLog(@"%@",s);
+    NSString* s = [a componentsJoinedByString:@", "];
+    NSLog(@"%@", s);
   }
-  NSLog(@"===================");
+  NSLog(@"%@", line);
 }
 
 -(Board*)initWithSize:(int)size seed:(int)seed colors:(NSArray*)colors {
@@ -40,7 +44,7 @@
   CGFloat w = SCREEN_WIDTH;
   CGFloat h = SCREEN_HEIGHT;
 
-  Xor128 *hash = [[[Xor128 alloc] initWithSeed:seed] autorelease];
+  Xor128 *hash = [Xor128 xor128WithSeed:seed];
   int hole = 80, wall = 20;
 
   // 盤面サイズ
@@ -64,41 +68,37 @@
   // START_X = 40, START_Y = 120, END_X = 280, END_Y = 360,
 
   // BOARD_SIZE ぶんの領域を確保して pieces を初期化
-  pieces = [[NSMutableArray alloc] initWithCapacity:BOARD_SIZE];
+  NSMutableArray* rows = [NSMutableArray arrayWithCapacity:BOARD_SIZE];
+  pieces = [rows retain];
   for (int i = 0; i < BOARD_SIZE; i++) {
     // pieces[i] を初期化
     NSMutableArray* row = [NSMutableArray arrayWithCapacity:BOARD_SIZE];
     for (int j = 0; j < BOARD_SIZE; j++) {
       // pieces[i][j] を初期化
-      PieceBody *body;
+      PieceBody* body = nil;
       if (i == 0 || j == 0 || i == BOARD_SIZE-1 || j == BOARD_SIZE-1) {
         // 4隅
         if (i+j == 0 || i+j == BOARD_SIZE-1 || i+j == 2*(BOARD_SIZE-1)) {
-          body = [[Wall alloc] init];
+          body = [Wall wall];
         } else {
-          if ([hash getInt] % 100 < hole) {
-            body = [[Hole alloc]
-                    initWithColor:[colors objectAtIndex:[hash getInt]%[colors count]]];
+          if ([hash randomInt:100] < hole) {
+            body = [Hole holeWithColor:[colors objectAtIndex:[hash randomInt:[colors count]]]];
           } else {
-            body = [[Wall alloc] init];
+            body = [Wall wall];
           }
         }
       } else {
-        if ([hash getInt] % 100 < wall) {
-          body = [[Wall alloc] init];
+        if ([hash randomInt:100] < wall) {
+          body = [Wall wall];
         } else {
-          body = [[Ball alloc]
-                  initWithColor:[colors objectAtIndex:[hash getInt]%[colors count]]];
+          body = [Ball ballWithColor:[colors objectAtIndex:[hash randomInt:[colors count]]]];
         }
       }
-      [body autorelease];
-      Piece *p = [[[Piece alloc] init] autorelease];
-      [p setFrame:[self getCoordPxWithCoord:i y:j]];
-      [p setImage:[UIImage imageNamed:[body getImageFilneName]]];
-      [p setBody:body];
-      [row addObject:p];
+      [row addObject:[Piece pieceWithFrame:[self getCoordPxWithCoord:i y:j]
+                                     image:[UIImage imageNamed:[body imageFileName]]
+                                 pieceBody:body]];
     }
-    [pieces addObject:row];
+    [rows addObject:row];
   }
 
   return self;
@@ -165,10 +165,6 @@
     }
   }
   [self dump];
-}
-
--(id)getPieces {
-  return pieces;
 }
 
 -(CGRect)getCoordPxWithCoord:(int)x y:(int)y {
