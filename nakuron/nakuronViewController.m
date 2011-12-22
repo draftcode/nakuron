@@ -57,7 +57,6 @@
   seed = arc4random() & 0x7FFFFFFF;
 
   // 盤面表示
-  board = [Board alloc];
   [self initBoard];
 }
 //*/
