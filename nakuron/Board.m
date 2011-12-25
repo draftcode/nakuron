@@ -35,7 +35,7 @@
                 [hash getInt];
                 for (int x = 0; x < boardSize; x++) {
                     if ([hash getInt] % 100 < hole) {
-                        [row addObject:[NSNumber numberWithInt:1+[hash randomInt:numberOfColors]]];
+                        [row addObject:[NSNumber numberWithInt:1+[hash getInt] % numberOfColors]];
                     } else {
                         [row addObject:[NSNumber numberWithInt:0]];
                     }
@@ -54,7 +54,7 @@
                     if ([hash getInt] % 100 < wall) {
                         [row addObject:[NSNumber numberWithInt:0]];
                     } else {
-                        [row addObject:[NSNumber numberWithInt:1+[hash randomInt:numberOfColors]]];
+                        [row addObject:[NSNumber numberWithInt:1+[hash getInt] % numberOfColors]];
                     }
                 }
                 [rows addObject:row];

@@ -39,7 +39,6 @@
 		23A895511481595900D42AA1 /* arrow-right.png in Resources */ = {isa = PBXBuildFile; fileRef = 23A8954D1481595900D42AA1 /* arrow-right.png */; };
 		23A895521481595900D42AA1 /* arrow-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 23A8954E1481595900D42AA1 /* arrow-up.png */; };
 		23A895531481595900D42AA1 /* arrow-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 23A8954F1481595900D42AA1 /* arrow-left.png */; };
-		23FA7DB614A26BA700145794 /* NSString+Repeat.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FA7DB514A26BA700145794 /* NSString+Repeat.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,8 +92,6 @@
 		23A8954D1481595900D42AA1 /* arrow-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-right.png"; sourceTree = "<group>"; };
 		23A8954E1481595900D42AA1 /* arrow-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-up.png"; sourceTree = "<group>"; };
 		23A8954F1481595900D42AA1 /* arrow-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-left.png"; sourceTree = "<group>"; };
-		23FA7DB414A26BA700145794 /* NSString+Repeat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Repeat.h"; sourceTree = "<group>"; };
-		23FA7DB514A26BA700145794 /* NSString+Repeat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Repeat.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,8 +121,6 @@
 		093CC89514A2F01F00DE084A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				23FA7DB414A26BA700145794 /* NSString+Repeat.h */,
-				23FA7DB514A26BA700145794 /* NSString+Repeat.m */,
 				2316EC19149BE11A0008B4BA /* Lib.h */,
 				2316EC1A149BE11A0008B4BA /* Lib.m */,
 			);
@@ -360,7 +355,6 @@
 				232601DA1456EE0300A42BC0 /* nakuronViewController.m in Sources */,
 				237CC17D147FE89400486081 /* Board.m in Sources */,
 				2316EC1B149BE11A0008B4BA /* Lib.m in Sources */,
-				23FA7DB614A26BA700145794 /* NSString+Repeat.m in Sources */,
 				095B179714A2F5B100DEC541 /* BoardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
