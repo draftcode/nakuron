@@ -166,8 +166,8 @@
                               cellHeight - 2);
     
     [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-    [UIView setAnimationDuration:0.1*(abs(fromY-toY)+abs(fromX-toX))];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    [UIView setAnimationDuration:0.07*(abs(fromY-toY)+abs(fromX-toX))];
     
     image.Frame = frame;
     
