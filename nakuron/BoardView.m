@@ -35,18 +35,6 @@
     [super dealloc];
 }
 
-/*
-- (void)showMap
-{
-    for (int i = 0; i < [board getBoardSize]; i++) {
-        for (int j = 0; j < [board getBoardSize]; j++) {
-            [[board getPieceWithCorrd:i y:j] updateImage];
-        }
-    }
-    NSLog(@"subview = %d", [self.view.subviews count]);
-}
-*/
-
 - (Board*)board
 {
     return board;
@@ -105,7 +93,7 @@
             }
         }
         
-        Direction dirs[] = { UP, LEFT, DOWN, RIGHT };
+        Direction dirs[] = { UP, RIGHT, DOWN, LEFT };
         int xBegin[] = { 1, boardSize+1, 1, 0 };
         int yBegin[] = { 0, 1, boardSize+1, 1 };
         int dx[] = { 1, 0, 1, 0 };

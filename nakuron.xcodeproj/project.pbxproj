@@ -148,6 +148,8 @@
 		092F227A14A3521D00948CEB /* Old */ = {
 			isa = PBXGroup;
 			children = (
+				23A415B01484C5FE0065D461 /* ProgrammingException.h */,
+				23A415B11484C5FE0065D461 /* ProgrammingException.m */,
 				236D3DCE1481786C00168BF3 /* Ball.h */,
 				236D3DCF1481786C00168BF3 /* Ball.m */,
 				237CC1D114801D2900486081 /* Wall.h */,
@@ -236,8 +238,6 @@
 				232601D81456EE0300A42BC0 /* nakuronViewController.h */,
 				232601D91456EE0300A42BC0 /* nakuronViewController.m */,
 				232601DB1456EE0300A42BC0 /* nakuronViewController.xib */,
-				23A415B01484C5FE0065D461 /* ProgrammingException.h */,
-				23A415B11484C5FE0065D461 /* ProgrammingException.m */,
 				095B179514A2F5B000DEC541 /* BoardView.h */,
 				095B179614A2F5B100DEC541 /* BoardView.m */,
 				237CC17B147FE89400486081 /* Board.h */,

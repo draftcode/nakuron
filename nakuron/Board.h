@@ -8,10 +8,10 @@
 @class Piece;
 
 typedef enum {
-    LEFT,
-    UP,
+    UP = 0,
     RIGHT,
-    DOWN
+    DOWN,
+    LEFT 
 } Direction;
 
 @interface Board : NSObject {
