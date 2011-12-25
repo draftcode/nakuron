@@ -13,7 +13,6 @@
     int seed;
     Board *board;
     IBOutlet BoardView *boardView;
-    IBOutlet UITextField *seedField;
 }
 
 - (IBAction)generate:(id)sender;

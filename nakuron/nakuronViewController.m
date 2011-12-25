@@ -14,7 +14,6 @@
 {
     [board release];
     [boardView release];
-    [seedField release];
     [super dealloc];
 }
 
@@ -37,6 +36,7 @@
     [colors addObject:[UIColor greenColor]];
     
     seed = arc4random() & 0x7FFFFFFF;
+    [board release];
     board = [[Board alloc] initWithSize:8 seed:seed colors:4];
     boardView.board = board;
     boardView.colors = colors;
@@ -50,8 +50,6 @@
     board = nil;
     [boardView release];
     boardView = nil;
-    [seedField release];
-    seedField = nil;
     [super viewDidUnload];
 }
 
@@ -65,6 +63,7 @@
 
 - (IBAction)generate:(id)sender {
     [sender resignFirstResponder];
+    seed = arc4random() & 0x7FFFFFFF;
     [board release];
     board = [[Board alloc] initWithSize:8 seed:seed colors:4];
     boardView.board = board;

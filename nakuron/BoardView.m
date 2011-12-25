@@ -8,6 +8,7 @@
 
 #import "BoardView.h"
 #import "Board.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface BoardView()
 - (void)addCellsSubView;
@@ -127,20 +128,23 @@
     UIImageView *image = [boardImages objectForKey:key];
 
     int boardSize = board.boardSize;
-    if (toY != 0 && toY != boardSize && toX != 0 && toX != boardSize) {
-        CGRect rect = [self frame];
-        double cellHeight = rect.size.height / (boardSize+2);
-        double cellWidth = rect.size.width / (boardSize+2);
-        CGRect frame = CGRectMake((toX+1)*cellWidth,
-                                  (toY+1)*cellHeight,
-                                  cellWidth,
-                                  cellHeight);
-        [image setFrame:frame];
-        [boardImages setObject:image forKey:[NSString stringWithFormat:@"%d,%d", toX, toY]];
-        [boardImages removeObjectForKey:key];
-    } else {
-        [boardImages removeObjectForKey:key];
-        [image removeFromSuperview];
-    }
+    CGRect rect = [self frame];
+    double cellHeight = rect.size.height / (boardSize+2);
+    double cellWidth = rect.size.width / (boardSize+2);
+    CGRect frame = CGRectMake((toX+1)*cellWidth,
+                              (toY+1)*cellHeight,
+                              cellWidth,
+                              cellHeight);
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+    [UIView setAnimationDuration:0.25*(abs(fromY-toY)+abs(fromX-toX))];
+    
+    image.Frame = frame;
+    
+    [UIView commitAnimations];
+
+    [boardImages setObject:image forKey:[NSString stringWithFormat:@"%d,%d", toX, toY]];
+    [boardImages removeObjectForKey:key];
 }
 @end
