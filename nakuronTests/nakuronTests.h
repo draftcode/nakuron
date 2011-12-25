@@ -7,11 +7,11 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-
+@class Xor128;
 
 @interface nakuronTests : SenTestCase {
 @private
-
+    Xor128 *hash;
 }
 
 @end

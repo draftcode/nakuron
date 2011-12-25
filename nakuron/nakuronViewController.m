@@ -31,16 +31,13 @@
 {
     NSMutableArray *colors = [NSMutableArray arrayWithCapacity:4];
     [colors addObject:[UIColor redColor]];
-    [colors addObject:[UIColor blueColor]];
     [colors addObject:[UIColor yellowColor]];
     [colors addObject:[UIColor greenColor]];
+    [colors addObject:[UIColor blueColor]];
     
-    seed = arc4random() & 0x7FFFFFFF;
-    [board release];
-    board = [[Board alloc] initWithSize:16 seed:seed colors:4];
-    boardView.board = board;
     boardView.colors = colors;
-    
+    [self generate:nil];
+
     [super viewDidLoad];    
 }
 
@@ -65,7 +62,7 @@
     [sender resignFirstResponder];
     seed = arc4random() & 0x7FFFFFFF;
     [board release];
-    board = [[Board alloc] initWithSize:16 seed:seed colors:4];
+    board = [[Board alloc] initWithSize:8 seed:seed colors:4];
     boardView.board = board;
     [boardView setNeedsDisplay];
 }

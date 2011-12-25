@@ -8,42 +8,65 @@
 
 @implementation Board
 
+// ``rows`` and ``holes`` array hold ``NSNumber`` or ``NSNull``.
+// NSNumber(0) means Wall, NSNumber(1..) means Ball or Hole, and NSNull means Empty.
+// Ball's number represents the kind of the ball.
+
 - (id)initWithSize:(int)size seed:(int)seed colors:(int)colors
 {
     self = [super init];
     if (self) {
-        int hole = 20; int wall = 20;
+        int hole = 80; int wall = 20;
         
         boardSize = size;
         numberOfColors = colors;
         Xor128 *hash = [Xor128 xor128WithSeed:seed];
         
         rows = [[NSMutableArray arrayWithCapacity:boardSize] retain];
-        for (int y = 0; y < boardSize; y++) {
-            NSMutableArray* row = [NSMutableArray arrayWithCapacity:boardSize];
-            for (int x = 0; x < boardSize; x++) {
-                if ([hash randomInt:100] < wall) {
-                    [row addObject:[NSNumber numberWithInt:0]];
-                } else {
-                    [row addObject:[NSNumber numberWithInt:1+[hash randomInt:numberOfColors]]];
-                }
-            }
-            [rows addObject:row];
-        }
-        
         holes = [[NSMutableArray arrayWithCapacity:4] retain];
         for (int i = 0; i < 4; i++) {
-            NSMutableArray* row = [NSMutableArray arrayWithCapacity:boardSize];
-            for (int j = 0; j < boardSize; j++) {
-                if ([hash randomInt:100] < hole) {
-                    [row addObject:[NSNumber numberWithInt:0]];
-                } else {
-                    [row addObject:[NSNumber numberWithInt:1+[hash randomInt:numberOfColors]]];
-                }
-            }
-            [holes addObject:row];
+            [holes addObject:[NSMutableArray arrayWithCapacity:boardSize]];
         }
         
+        for (int y = 0; y < boardSize+2; y++) {
+            if (y == 0 || y == boardSize+1) {
+                NSMutableArray* row = [holes objectAtIndex:(y==0)?UP:DOWN];
+                [hash getInt];
+                [hash getInt];
+                for (int x = 0; x < boardSize; x++) {
+                    if ([hash getInt] % 100 < hole) {
+                        [row addObject:[NSNumber numberWithInt:1+[hash randomInt:numberOfColors]]];
+                    } else {
+                        [row addObject:[NSNumber numberWithInt:0]];
+                    }
+                }
+                [hash getInt];
+                [hash getInt];
+            } else {
+                if ([hash getInt] % 100 < hole) {
+                    [[holes objectAtIndex:LEFT] addObject:[NSNumber numberWithInt:1+[hash getInt] % numberOfColors]];
+                } else {
+                    [[holes objectAtIndex:LEFT] addObject:[NSNumber numberWithInt:0]];
+                }
+                
+                NSMutableArray* row = [NSMutableArray arrayWithCapacity:boardSize];
+                for (int x = 0; x < boardSize; x++) {
+                    if ([hash getInt] % 100 < wall) {
+                        [row addObject:[NSNumber numberWithInt:0]];
+                    } else {
+                        [row addObject:[NSNumber numberWithInt:1+[hash randomInt:numberOfColors]]];
+                    }
+                }
+                [rows addObject:row];
+
+                if ([hash getInt] % 100 < hole) {
+                    [[holes objectAtIndex:RIGHT] addObject:[NSNumber numberWithInt:1+[hash getInt] % numberOfColors]];
+                } else {
+                    [[holes objectAtIndex:RIGHT] addObject:[NSNumber numberWithInt:0]];
+                }            
+            }
+        }
+                
         observers = [[NSMutableSet alloc] init];
     }
     
@@ -61,6 +84,12 @@
 #pragma mark - Getter/Setter
 @synthesize boardSize;
 @synthesize ballColors;
+
+// getStateAtRow and getHoleAtDirection returns one of following:
+//
+// -1 ... Empty
+//  0 ... Wall
+// otherwise ... Ball (and its number is the kind of the ball or the hole.
 
 - (int)getStateAtRow:(NSUInteger)y Col:(NSUInteger)x
 {

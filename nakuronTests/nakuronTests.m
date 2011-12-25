@@ -7,27 +7,32 @@
 //
 
 #import "nakuronTests.h"
-
+#import "Lib.h"
 
 @implementation nakuronTests
 
 - (void)setUp
 {
-  [super setUp];
-
-  // Set-up code here.
+    [super setUp];
+    
+    hash = [[Xor128 alloc] initWithSeed:442410386];
 }
 
 - (void)tearDown
 {
-  // Tear-down code here.
-
-  [super tearDown];
+    [hash release];
+    hash = nil;
+    
+    [super tearDown];
 }
 
 - (void)testExample
 {
-  STFail(@"Unit tests are not implemented yet in nakuronTests");
+    STAssertEquals([hash getInt], 1135931561, @"First int.");
+    STAssertEquals([hash getInt], 71737415, @"Second int.");
+    STAssertEquals([hash getInt], 168295657, @"Third int");
+    STAssertEquals([hash getInt], 1704634894, @"Fourth int");
+    STAssertEquals([hash getInt], 30355372, @"Fifth int");
 }
 
 @end
