@@ -3,184 +3,194 @@
 //  nakuron
 //
 
-#import "nakuronViewController.h"
 #import "Board.h"
-#import "Ball.h"
-#import "Empty.h"
-#import "Wall.h"
-#import "Hole.h"
 #import "ProgrammingException.h"
 #import "Lib.h"
-#import "NSString+Repeat.h"
-#import "Piece.h"
 
 @implementation Board
 
--(void)dealloc {
-  [pieces release];
-  [super dealloc];
-}
-
--(void)setPieceWithCorrd:(int)x y:(int)y obj:(id)obj{
-  [[pieces objectAtIndex:x] replaceObjectAtIndex:y withObject:obj];
-}
-
--(void)dump {
-  NSString* line = [@"=" repeatTimes:(BOARD_SIZE * 3) - 2];
-  NSLog(@"%@", line);
-  for (int i = 0; i < BOARD_SIZE; i++) {
-    NSMutableArray* a = [NSMutableArray arrayWithCapacity:BOARD_SIZE];
-    for (int j = 0; j < BOARD_SIZE; j++) {
-      [a addObject:[[[self getPieceWithCorrd:j y:i] description] substringToIndex:1]];
+- (id)initWithSize:(int)size seed:(int)seed colors:(int)colors
+{
+    self = [super init];
+    if (self) {
+        int hole = 20; int wall = 20;
+        
+        boardSize = size;
+        numberOfColors = colors;
+        Xor128 *hash = [Xor128 xor128WithSeed:seed];
+        
+        rows = [[NSMutableArray arrayWithCapacity:boardSize] retain];
+        for (int y = 0; y < boardSize; y++) {
+            NSMutableArray* row = [NSMutableArray arrayWithCapacity:boardSize];
+            for (int x = 0; x < boardSize; x++) {
+                if ([hash randomInt:100] < wall) {
+                    [row addObject:[NSNumber numberWithInt:0]];
+                } else {
+                    [row addObject:[NSNumber numberWithInt:1+[hash randomInt:numberOfColors]]];
+                }
+            }
+            [rows addObject:row];
+        }
+        
+        holes = [[NSMutableArray arrayWithCapacity:4] retain];
+        for (int i = 0; i < 4; i++) {
+            NSMutableArray* row = [NSMutableArray arrayWithCapacity:boardSize];
+            for (int j = 0; j < boardSize; j++) {
+                if ([hash randomInt:100] < hole) {
+                    [row addObject:[NSNumber numberWithInt:0]];
+                } else {
+                    [row addObject:[NSNumber numberWithInt:1+[hash randomInt:numberOfColors]]];
+                }
+            }
+            [holes addObject:row];
+        }
+        
+        observers = [[NSMutableSet alloc] init];
     }
-    NSString* s = [a componentsJoinedByString:@", "];
-    NSLog(@"%@", s);
-  }
-  NSLog(@"%@", line);
+    
+    return self;
 }
 
--(Board*)initWithSize:(int)size seed:(int)seed colors:(NSArray*)colors {
-  score = 0;
-  CGFloat w = SCREEN_WIDTH;
-  CGFloat h = SCREEN_HEIGHT;
+- (void)dealloc
+{
+    [holes release];
+    [rows release];
+    [observers release];
+    [super dealloc];
+}
 
-  Xor128 *hash = [Xor128 xor128WithSeed:seed];
-  int hole = 80, wall = 20;
+#pragma mark - Getter/Setter
+@synthesize boardSize;
+@synthesize ballColors;
 
-  // 盤面サイズ
-  // (1,1) ... (BOARD_SIZE-2,BOARD_SIZE-2) が、球の存在しうる領域
-  BOARD_SIZE = size + 2;
-
-  // 盤面サイズ (px) の定義
-  BOARD_SIZE_PX = (w * 12) / 16;
-
-  // 盤面描画エリアを取得
-  START_X_PX = (w - BOARD_SIZE_PX) / 2;
-  START_Y_PX = (h - BOARD_SIZE_PX) / 2;
-  END_X_PX = w - START_X_PX;
-  END_Y_PX = h - START_Y_PX;
-
-  // 1マスのサイズ
-  CELL_SIZE_PX = (END_X_PX - START_X_PX) / BOARD_SIZE;
-
-  // 縦480px、横320px の場合
-  // BOARD_SIZE = 240,
-  // START_X = 40, START_Y = 120, END_X = 280, END_Y = 360,
-
-  // BOARD_SIZE ぶんの領域を確保して pieces を初期化
-  NSMutableArray* rows = [NSMutableArray arrayWithCapacity:BOARD_SIZE];
-  pieces = [rows retain];
-  for (int i = 0; i < BOARD_SIZE; i++) {
-    // pieces[i] を初期化
-    NSMutableArray* row = [NSMutableArray arrayWithCapacity:BOARD_SIZE];
-    for (int j = 0; j < BOARD_SIZE; j++) {
-      // pieces[i][j] を初期化
-      PieceBody* body = nil;
-      if (i == 0 || j == 0 || i == BOARD_SIZE-1 || j == BOARD_SIZE-1) {
-        // 4隅
-        if (i+j == 0 || i+j == BOARD_SIZE-1 || i+j == 2*(BOARD_SIZE-1)) {
-          body = [Wall wall];
-        } else {
-          if ([hash randomInt:100] < hole) {
-            body = [Hole holeWithColor:[colors objectAtIndex:[hash randomInt:[colors count]]]];
-          } else {
-            body = [Wall wall];
-          }
-        }
-      } else {
-        if ([hash randomInt:100] < wall) {
-          body = [Wall wall];
-        } else {
-          body = [Ball ballWithColor:[colors objectAtIndex:[hash randomInt:[colors count]]]];
-        }
-      }
-      [row addObject:[Piece pieceWithFrame:[self getCoordPxWithCoord:i y:j]
-                                     image:[UIImage imageNamed:[body imageFileName]]
-                                 pieceBody:body]];
+- (int)getStateAtRow:(NSUInteger)y Col:(NSUInteger)x
+{
+    id obj = [[rows objectAtIndex:y] objectAtIndex:x];
+    if (obj == [NSNull null]) {
+        return -1;
+    } else {
+        return [obj intValue];
     }
-    [rows addObject:row];
-  }
-
-  return self;
 }
 
--(int)getBoardSize {
-  return BOARD_SIZE;
-}
-
--(int)getScore {
-  return score;
-}
-
--(void)updatePieces {
-
-}
-
--(void)move:(Direction)d {
-  int start, end, dx, dy;
-  switch (d) {
-  case LEFT: start = 1; end = BOARD_SIZE-1; dy = 0; dx = 1; break;
-  case UP: start = 1; end = BOARD_SIZE-1; dy = 1; dx = 0; break;
-  case RIGHT: start = BOARD_SIZE-2; end = 0; dy = 0; dx = -1; break;
-  case DOWN: start = BOARD_SIZE-2; end = 0; dy = -1; dx = 0; break;
-  }
-
-  if (dx == 0) {
-    // 縦方向
-    for (int i = 1; i != BOARD_SIZE-1; i++) {
-      for (int j = start; j != end; j += dy) {
-        if (!((start <= j && j <= end) || (end <= j && j <= start))) {
-          [ProgrammingException error:@"ループ変数がボードの範囲外"];
-        }
-        int ty = j-dy;
-        Piece *target, *tmp;
-        target = tmp = [self getPieceWithCorrd:i y:ty];
-        while ([tmp canWaitFor]) {
-          target = tmp;
-          ty -= dy;
-          if (!(0 <= ty && ty < BOARD_SIZE)) break;
-          tmp = [self getPieceWithCorrd:i y:ty];
-        }
-        [[self getPieceWithCorrd:i y:j] moveTo:target];
-      }
+- (void)setState:(int)state Row:(NSUInteger)y Col:(NSUInteger)x
+{
+    id obj = nil;
+    if (state == -1) {
+        obj = [NSNull null];
+    } else {
+        obj = [NSNumber numberWithInt:state];
     }
-  } else {
-    // 横方向
-    for (int j = 1; j != BOARD_SIZE-1; j++) {
-      for (int i = start; i != end; i += dx) {
-        if (!((start <= i && i <= end) || (end <= i && i <= start))) {
-          [ProgrammingException error:@"ループ変数がボードの範囲外"];
-        }
-        int tx = i-dx;
-        Piece *target, *tmp;
-        target = tmp =[self getPieceWithCorrd:tx y:j];
-        while ([tmp canWaitFor]) {
-          target = tmp;
-          tx -= dx;
-          if (!(0 <= tx && tx < BOARD_SIZE)) break;
-          tmp = [self getPieceWithCorrd:tx y:j];
-        }
-        [[self getPieceWithCorrd:i y:j] moveTo:target];
-      }
+    NSMutableArray *row = [rows objectAtIndex:y];
+    [row replaceObjectAtIndex:x withObject:obj];
+}
+
+- (int)getHoleAtDirection:(Direction)dir Index:(NSUInteger)x
+{
+    return [[[holes objectAtIndex:dir] objectAtIndex:x] intValue];
+}
+
+- (void)addObserver:(NSObject *)observer
+{
+    [observers addObject:observer];
+}
+
+- (void)removeObserver:(NSObject *)observer
+{
+    [observers removeObject:observer];
+}
+
+#pragma mark - Movements
+
+- (void)moveObjectFromRow:(int)fromY Col:(int)fromX ToRow:(int)toY Col:(int)toX
+{
+    int state = [self getStateAtRow:fromY Col:fromX];
+    
+    if (toY != -1 && toY != boardSize && toX != -1 && toX != boardSize) {
+        [self setState:state Row:toY Col:toX];
     }
-  }
-  [self dump];
+    [self setState:-1 Row:fromY Col:fromX];
+    
+    for (id observer in observers) {
+        if ([observer respondsToSelector:@selector(moveObjectFromRow:Col:ToRow:Col:)]) {
+            [observer moveObjectFromRow:fromY Col:fromX ToRow:toY Col:toX];
+        }
+    }
 }
 
--(CGRect)getCoordPxWithCoord:(int)x y:(int)y {
-  //if (1 <= cell_x && cell_x <= BOARD_SIZE
-  //    && 1 <= cell_y && cell_y <= BOARD_SIZE) {
-  return CGRectMake(START_X_PX+x*CELL_SIZE_PX,
-                    START_Y_PX+y*CELL_SIZE_PX,
-                    CELL_SIZE_PX,
-                    CELL_SIZE_PX);
-  //} else {
-  //    return nil;
-  //}
-}
+- (void)move:(Direction)dir
+{
+    int start, end, dx, dy;
+    switch (dir) {
+        case LEFT:  start = 0; end = boardSize; dy = 0; dx = 1; break;
+        case UP:    start = 0; end = boardSize; dy = 1; dx = 0; break;
+        case RIGHT: start = boardSize-1; end = -1; dy = 0; dx = -1; break;
+        case DOWN:  start = boardSize-1; end = -1; dy = -1; dx = 0; break;
+    }
+    if (dx == 0) {
+        // 縦方向
+        for (int x = 0; x < boardSize; x++) {
+            for (int y = start; y != end; y += dy) {
+                int state = [self getStateAtRow:y Col:x];
+                if (state != -1 && state != 0) {
+                    int collideIdx = y - dy;
+                    for (; 0 <= collideIdx && collideIdx < boardSize; collideIdx -= dy) {
+                        int collideState = [self getStateAtRow:collideIdx Col:x];
+                        if (collideState != -1) break;
+                    }
+                    
+                    int moveTo = -2;
+                    if (collideIdx == -1 || collideIdx == boardSize) {
+                        int holeState = [self getHoleAtDirection:dir Index:x];
+                        if (holeState == 0) {
+                            moveTo = collideIdx + dy;
+                        } else {
+                            moveTo = collideIdx;
+                        }
+                    } else {
+                        moveTo = collideIdx + dy;
+                    }
+                    
+                    if (moveTo != y) {
+                        [self moveObjectFromRow:y Col:x ToRow:moveTo Col:x];
+                    }
 
--(Piece*)getPieceWithCorrd:(int)x y:(int)y {
-  return [[pieces objectAtIndex:x] objectAtIndex:y];
+                }
+            }
+        }
+    } else {
+        // 横方向
+        for (int y = 0; y < boardSize; y++) {
+            for (int x = start; x != end; x += dx) {
+                int state = [self getStateAtRow:y Col:x];
+                if (state != -1 && state != 0) {
+                    int collideIdx = x - dx;
+                    for (; 0 <= collideIdx && collideIdx < boardSize; collideIdx -= dx) {
+                        int collideState = [self getStateAtRow:y Col:collideIdx];
+                        if (collideState != -1) break;
+                    }
+                    
+                    int moveTo = -2;
+                    if (collideIdx == -1 || collideIdx == boardSize) {
+                        int holeState = [self getHoleAtDirection:dir Index:y];
+                        if (holeState == 0) {
+                            moveTo = collideIdx + dx;
+                        } else {
+                            moveTo = collideIdx;
+                        }
+                    } else {
+                        moveTo = collideIdx + dx;
+                    }
+                    
+                    if (moveTo != x) {
+                        [self moveObjectFromRow:y Col:x ToRow:y Col:moveTo];
+                    }
+                    
+                }
+            }
+        }
+    }
+
 }
 
 @end

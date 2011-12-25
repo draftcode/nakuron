@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		095B179714A2F5B100DEC541 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 095B179614A2F5B100DEC541 /* BoardView.m */; };
+		095B179E14A2F86200DEC541 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 095B179C14A2F86200DEC541 /* MainWindow.xib */; };
 		230ACBE4148A987A002CA7E7 /* PieceBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 230ACBE3148A987A002CA7E7 /* PieceBody.m */; };
 		2316EC1B149BE11A0008B4BA /* Lib.m in Sources */ = {isa = PBXBuildFile; fileRef = 2316EC1A149BE11A0008B4BA /* Lib.m */; };
 		232601C41456EE0300A42BC0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232601C31456EE0300A42BC0 /* UIKit.framework */; };
@@ -15,7 +17,6 @@
 		232601CE1456EE0300A42BC0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 232601CC1456EE0300A42BC0 /* InfoPlist.strings */; };
 		232601D11456EE0300A42BC0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 232601D01456EE0300A42BC0 /* main.m */; };
 		232601D41456EE0300A42BC0 /* nakuronAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 232601D31456EE0300A42BC0 /* nakuronAppDelegate.m */; };
-		232601D71456EE0300A42BC0 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 232601D51456EE0300A42BC0 /* MainWindow.xib */; };
 		232601DA1456EE0300A42BC0 /* nakuronViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 232601D91456EE0300A42BC0 /* nakuronViewController.m */; };
 		232601DD1456EE0300A42BC0 /* nakuronViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 232601DB1456EE0300A42BC0 /* nakuronViewController.xib */; };
 		232601E41456EE0300A42BC0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232601C31456EE0300A42BC0 /* UIKit.framework */; };
@@ -60,6 +61,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		095B179514A2F5B000DEC541 /* BoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardView.h; sourceTree = "<group>"; };
+		095B179614A2F5B100DEC541 /* BoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardView.m; sourceTree = "<group>"; };
+		095B179D14A2F86200DEC541 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		230ACBE2148A987A002CA7E7 /* PieceBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieceBody.h; sourceTree = "<group>"; };
 		230ACBE3148A987A002CA7E7 /* PieceBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieceBody.m; sourceTree = "<group>"; };
 		2316EC19149BE11A0008B4BA /* Lib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lib.h; sourceTree = "<group>"; };
@@ -74,7 +78,6 @@
 		232601D01456EE0300A42BC0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		232601D21456EE0300A42BC0 /* nakuronAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nakuronAppDelegate.h; sourceTree = "<group>"; };
 		232601D31456EE0300A42BC0 /* nakuronAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nakuronAppDelegate.m; sourceTree = "<group>"; };
-		232601D61456EE0300A42BC0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		232601D81456EE0300A42BC0 /* nakuronViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nakuronViewController.h; sourceTree = "<group>"; };
 		232601D91456EE0300A42BC0 /* nakuronViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nakuronViewController.m; sourceTree = "<group>"; };
 		232601DC1456EE0300A42BC0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/nakuronViewController.xib; sourceTree = "<group>"; };
@@ -142,6 +145,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		092F227A14A3521D00948CEB /* Old */ = {
+			isa = PBXGroup;
+			children = (
+				236D3DCE1481786C00168BF3 /* Ball.h */,
+				236D3DCF1481786C00168BF3 /* Ball.m */,
+				237CC1D114801D2900486081 /* Wall.h */,
+				237CC1D214801D2900486081 /* Wall.m */,
+				236D3DD114817A0200168BF3 /* Hole.h */,
+				236D3DD214817A0300168BF3 /* Hole.m */,
+				236D3DD414817B6000168BF3 /* Color.h */,
+				236D3DD514817B6000168BF3 /* Color.m */,
+				23A89555148177AC00D42AA1 /* Piece.h */,
+				23A89556148177AC00D42AA1 /* Piece.m */,
+				230ACBE2148A987A002CA7E7 /* PieceBody.h */,
+				230ACBE3148A987A002CA7E7 /* PieceBody.m */,
+				237CC1D414801DD500486081 /* Empty.h */,
+				237CC1D514801DD500486081 /* Empty.m */,
+			);
+			name = Old;
+			sourceTree = "<group>";
+		};
+		093CC89514A2F01F00DE084A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				23FA7DB414A26BA700145794 /* NSString+Repeat.h */,
+				23FA7DB514A26BA700145794 /* NSString+Repeat.m */,
+				2316EC19149BE11A0008B4BA /* Lib.h */,
+				2316EC1A149BE11A0008B4BA /* Lib.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		095B179314A2F40C00DEC541 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				23855F3B148546D400B909C5 /* bblue.png */,
+				23855F3C148546D400B909C5 /* bgreen.png */,
+				23855F3D148546D400B909C5 /* bred.png */,
+				23855F3E148546D400B909C5 /* byellow.png */,
+				23855F3F148546D400B909C5 /* empty.png */,
+				23855F40148546D400B909C5 /* hblue.png */,
+				23855F41148546D400B909C5 /* hgreen.png */,
+				23855F42148546D500B909C5 /* hred.png */,
+				23855F43148546D500B909C5 /* hyellow.png */,
+				23855F44148546D500B909C5 /* wall.png */,
+				23A8954C1481595900D42AA1 /* arrow-down.png */,
+				23A8954D1481595900D42AA1 /* arrow-right.png */,
+				23A8954E1481595900D42AA1 /* arrow-up.png */,
+				23A8954F1481595900D42AA1 /* arrow-left.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		232601B41456EE0200A42BC0 = {
 			isa = PBXGroup;
 			children = (
@@ -176,32 +232,19 @@
 			children = (
 				232601D21456EE0300A42BC0 /* nakuronAppDelegate.h */,
 				232601D31456EE0300A42BC0 /* nakuronAppDelegate.m */,
-				232601D51456EE0300A42BC0 /* MainWindow.xib */,
+				095B179C14A2F86200DEC541 /* MainWindow.xib */,
 				232601D81456EE0300A42BC0 /* nakuronViewController.h */,
 				232601D91456EE0300A42BC0 /* nakuronViewController.m */,
-				237CC17B147FE89400486081 /* Board.h */,
-				237CC17C147FE89400486081 /* Board.m */,
-				236D3DD414817B6000168BF3 /* Color.h */,
-				236D3DD514817B6000168BF3 /* Color.m */,
-				23A89555148177AC00D42AA1 /* Piece.h */,
-				23A89556148177AC00D42AA1 /* Piece.m */,
-				230ACBE2148A987A002CA7E7 /* PieceBody.h */,
-				230ACBE3148A987A002CA7E7 /* PieceBody.m */,
-				236D3DCE1481786C00168BF3 /* Ball.h */,
-				236D3DCF1481786C00168BF3 /* Ball.m */,
-				237CC1D414801DD500486081 /* Empty.h */,
-				237CC1D514801DD500486081 /* Empty.m */,
-				236D3DD114817A0200168BF3 /* Hole.h */,
-				236D3DD214817A0300168BF3 /* Hole.m */,
-				237CC1D114801D2900486081 /* Wall.h */,
-				237CC1D214801D2900486081 /* Wall.m */,
+				232601DB1456EE0300A42BC0 /* nakuronViewController.xib */,
 				23A415B01484C5FE0065D461 /* ProgrammingException.h */,
 				23A415B11484C5FE0065D461 /* ProgrammingException.m */,
-				232601DB1456EE0300A42BC0 /* nakuronViewController.xib */,
-				23FA7DB414A26BA700145794 /* NSString+Repeat.h */,
-				23FA7DB514A26BA700145794 /* NSString+Repeat.m */,
-				2316EC19149BE11A0008B4BA /* Lib.h */,
-				2316EC1A149BE11A0008B4BA /* Lib.m */,
+				095B179514A2F5B000DEC541 /* BoardView.h */,
+				095B179614A2F5B100DEC541 /* BoardView.m */,
+				237CC17B147FE89400486081 /* Board.h */,
+				237CC17C147FE89400486081 /* Board.m */,
+				095B179314A2F40C00DEC541 /* Resources */,
+				093CC89514A2F01F00DE084A /* Utilities */,
+				092F227A14A3521D00948CEB /* Old */,
 				232601CA1456EE0300A42BC0 /* Supporting Files */,
 			);
 			path = nakuron;
@@ -210,20 +253,6 @@
 		232601CA1456EE0300A42BC0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				23855F3B148546D400B909C5 /* bblue.png */,
-				23855F3C148546D400B909C5 /* bgreen.png */,
-				23855F3D148546D400B909C5 /* bred.png */,
-				23855F3E148546D400B909C5 /* byellow.png */,
-				23855F3F148546D400B909C5 /* empty.png */,
-				23855F40148546D400B909C5 /* hblue.png */,
-				23855F41148546D400B909C5 /* hgreen.png */,
-				23855F42148546D500B909C5 /* hred.png */,
-				23855F43148546D500B909C5 /* hyellow.png */,
-				23855F44148546D500B909C5 /* wall.png */,
-				23A8954C1481595900D42AA1 /* arrow-down.png */,
-				23A8954D1481595900D42AA1 /* arrow-right.png */,
-				23A8954E1481595900D42AA1 /* arrow-up.png */,
-				23A8954F1481595900D42AA1 /* arrow-left.png */,
 				232601CB1456EE0300A42BC0 /* nakuron-Info.plist */,
 				232601CC1456EE0300A42BC0 /* InfoPlist.strings */,
 				232601CF1456EE0300A42BC0 /* nakuron-Prefix.pch */,
@@ -323,7 +352,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				232601CE1456EE0300A42BC0 /* InfoPlist.strings in Resources */,
-				232601D71456EE0300A42BC0 /* MainWindow.xib in Resources */,
 				232601DD1456EE0300A42BC0 /* nakuronViewController.xib in Resources */,
 				23A895501481595900D42AA1 /* arrow-down.png in Resources */,
 				23A895511481595900D42AA1 /* arrow-right.png in Resources */,
@@ -339,6 +367,7 @@
 				23855F4C148546D500B909C5 /* hred.png in Resources */,
 				23855F4D148546D500B909C5 /* hyellow.png in Resources */,
 				23855F4E148546D500B909C5 /* wall.png in Resources */,
+				095B179E14A2F86200DEC541 /* MainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +417,7 @@
 				230ACBE4148A987A002CA7E7 /* PieceBody.m in Sources */,
 				2316EC1B149BE11A0008B4BA /* Lib.m in Sources */,
 				23FA7DB614A26BA700145794 /* NSString+Repeat.m in Sources */,
+				095B179714A2F5B100DEC541 /* BoardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,20 +440,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		095B179C14A2F86200DEC541 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				095B179D14A2F86200DEC541 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
 		232601CC1456EE0300A42BC0 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				232601CD1456EE0300A42BC0 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		232601D51456EE0300A42BC0 /* MainWindow.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				232601D61456EE0300A42BC0 /* en */,
-			);
-			name = MainWindow.xib;
 			sourceTree = "<group>";
 		};
 		232601DB1456EE0300A42BC0 /* nakuronViewController.xib */ = {

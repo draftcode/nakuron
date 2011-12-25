@@ -8,35 +8,30 @@
 @class Piece;
 
 typedef enum {
-  LEFT,
-  UP,
-  RIGHT,
-  DOWN
+    LEFT,
+    UP,
+    RIGHT,
+    DOWN
 } Direction;
 
 @interface Board : NSObject {
-@private
-  int score;
-  NSArray *pieces;
-
-@public
-  int BOARD_SIZE;
-  int BOARD_SIZE_PX;
-  int START_X_PX, START_Y_PX, END_X_PX, END_Y_PX;
-  int CELL_SIZE_PX;
+    int boardSize;
+    int numberOfColors;
+    NSMutableArray *holes;
+    NSMutableArray *rows;
+    NSMutableSet *observers;
 }
 
--(void)dump;
+- (id)initWithSize:(int)size seed:(int)seed colors:(int)colors;
 
--(Board*)initWithSize:(int)size seed:(int)seed colors:(NSArray*)colors;
+- (int)getStateAtRow:(NSUInteger)y Col:(NSUInteger)x;
+- (int)getHoleAtDirection:(Direction)dir Index:(NSUInteger)x;
+- (void)addObserver:(NSObject *)observer;
+- (void)removeObserver:(NSObject *)observer;
 
--(int)getBoardSize;
+- (void)move:(Direction)dir;
 
--(void)updatePieces;
-
--(void)move:(Direction)d;
-
--(CGRect)getCoordPxWithCoord:(int)x y:(int)y;
--(Piece*)getPieceWithCorrd:(int)x y:(int)y;
+@property (readonly) int boardSize;
+@property (readonly) int ballColors;
 
 @end
