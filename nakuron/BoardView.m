@@ -10,20 +10,47 @@
 #import "Board.h"
 #import <QuartzCore/QuartzCore.h>
 
+@interface CircleView : UIView {
+    UIColor *color;
+}
+@property (readwrite,retain,nonatomic) UIColor *color;
+@end
+
+@implementation CircleView
+@synthesize color;
+
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        color = [[UIColor blackColor] retain];
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    [color release];
+    color = nil;
+    [super dealloc];
+}
+
+- (void)drawRect:(CGRect)rect
+{
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillEllipseInRect(context, rect);
+}
+
+@end
+
 @interface BoardView()
 - (void)addCellsSubView;
 @end
 
 @implementation BoardView
 @synthesize colors;
-
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-    }
-    return self;
-}
 
 - (void)dealloc
 {
@@ -74,22 +101,24 @@
             for (int x = 0; x < boardSize; x++) {
                 int cellState = [board getStateAtRow:y Col:x];
                 if (cellState != -1) {
-                    CGRect frame = CGRectMake((x+1)*cellWidth,
-                                              (y+1)*cellHeight,
-                                              cellWidth,
-                                              cellHeight);
-                    UIColor *color = nil;
+                    CGRect frame = CGRectMake((x+1)*cellWidth + 1,
+                                              (y+1)*cellHeight + 1,
+                                              cellWidth - 2,
+                                              cellHeight - 2);
+                    UIView *view = nil;
                     if (cellState == 0) {
-                        color = [UIColor blackColor];
+                        view = [[UIView alloc] initWithFrame:frame];
+                        [view setBackgroundColor:[UIColor blackColor]];
                     } else {
-                        color = [colors objectAtIndex:cellState-1];
+                        CircleView *circleView = [[CircleView alloc] initWithFrame:frame];
+                        circleView.color = [colors objectAtIndex:cellState-1];
+                        circleView.backgroundColor = [UIColor clearColor];
+                        view = circleView;
                     }
                     
-                    UIImageView *image = [[UIImageView alloc] initWithFrame:frame];
-                    [image setBackgroundColor:color];
-                    [self addSubview:image];
-                    [boardImages setObject:image forKey:[NSString stringWithFormat:@"%d,%d", x, y]];
-                    [image release];
+                    [self addSubview:view];
+                    [boardImages setObject:view forKey:[NSString stringWithFormat:@"%d,%d", x, y]];
+                    [view release];
                 }
             }
         }
@@ -102,10 +131,10 @@
         for (int dirIdx = 0; dirIdx < 4; dirIdx++) {
             for (int i = 0; i < boardSize; i++) {
                 int cellState = [board getHoleAtDirection:dirs[dirIdx] Index:i];
-                CGRect frame = CGRectMake((xBegin[dirIdx]+dx[dirIdx]*i)*cellWidth,
-                                          (yBegin[dirIdx]+dy[dirIdx]*i)*cellHeight,
-                                          cellWidth,
-                                          cellHeight);
+                CGRect frame = CGRectMake((xBegin[dirIdx]+dx[dirIdx]*i)*cellWidth + 1,
+                                          (yBegin[dirIdx]+dy[dirIdx]*i)*cellHeight + 1,
+                                          cellWidth - 2,
+                                          cellHeight - 2);
                 UIColor *color = nil;
                 if (cellState == 0) {
                     color = [UIColor blackColor];
@@ -113,7 +142,7 @@
                     color = [colors objectAtIndex:cellState-1];
                 }
                 
-                UIImageView *image = [[UIImageView alloc] initWithFrame:frame];
+                UIView *image = [[UIView alloc] initWithFrame:frame];
                 [image setBackgroundColor:color];
                 [self addSubview:image];
                 [image release];
@@ -131,14 +160,14 @@
     CGRect rect = [self frame];
     double cellHeight = rect.size.height / (boardSize+2);
     double cellWidth = rect.size.width / (boardSize+2);
-    CGRect frame = CGRectMake((toX+1)*cellWidth,
-                              (toY+1)*cellHeight,
-                              cellWidth,
-                              cellHeight);
+    CGRect frame = CGRectMake((toX+1)*cellWidth + 1,
+                              (toY+1)*cellHeight + 1,
+                              cellWidth - 2,
+                              cellHeight - 2);
     
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-    [UIView setAnimationDuration:0.25*(abs(fromY-toY)+abs(fromX-toX))];
+    [UIView setAnimationDuration:0.1*(abs(fromY-toY)+abs(fromX-toX))];
     
     image.Frame = frame;
     
