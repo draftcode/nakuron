@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		095B179714A2F5B100DEC541 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 095B179614A2F5B100DEC541 /* BoardView.m */; };
 		095B179E14A2F86200DEC541 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 095B179C14A2F86200DEC541 /* MainWindow.xib */; };
-		230ACBE4148A987A002CA7E7 /* PieceBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 230ACBE3148A987A002CA7E7 /* PieceBody.m */; };
 		2316EC1B149BE11A0008B4BA /* Lib.m in Sources */ = {isa = PBXBuildFile; fileRef = 2316EC1A149BE11A0008B4BA /* Lib.m */; };
 		232601C41456EE0300A42BC0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232601C31456EE0300A42BC0 /* UIKit.framework */; };
 		232601C61456EE0300A42BC0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232601C51456EE0300A42BC0 /* Foundation.framework */; };
@@ -25,12 +24,7 @@
 		232601EE1456EE0300A42BC0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 232601EC1456EE0300A42BC0 /* InfoPlist.strings */; };
 		232601F11456EE0300A42BC0 /* nakuronTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 232601F01456EE0300A42BC0 /* nakuronTests.h */; };
 		232601F31456EE0300A42BC0 /* nakuronTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 232601F21456EE0300A42BC0 /* nakuronTests.m */; };
-		236D3DD01481786C00168BF3 /* Ball.m in Sources */ = {isa = PBXBuildFile; fileRef = 236D3DCF1481786C00168BF3 /* Ball.m */; };
-		236D3DD314817A0300168BF3 /* Hole.m in Sources */ = {isa = PBXBuildFile; fileRef = 236D3DD214817A0300168BF3 /* Hole.m */; };
-		236D3DD614817B6000168BF3 /* Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 236D3DD514817B6000168BF3 /* Color.m */; };
 		237CC17D147FE89400486081 /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = 237CC17C147FE89400486081 /* Board.m */; };
-		237CC1D314801D2900486081 /* Wall.m in Sources */ = {isa = PBXBuildFile; fileRef = 237CC1D214801D2900486081 /* Wall.m */; };
-		237CC1D614801DD500486081 /* Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = 237CC1D514801DD500486081 /* Empty.m */; };
 		23855F45148546D500B909C5 /* bblue.png in Resources */ = {isa = PBXBuildFile; fileRef = 23855F3B148546D400B909C5 /* bblue.png */; };
 		23855F46148546D500B909C5 /* bgreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 23855F3C148546D400B909C5 /* bgreen.png */; };
 		23855F47148546D500B909C5 /* bred.png in Resources */ = {isa = PBXBuildFile; fileRef = 23855F3D148546D400B909C5 /* bred.png */; };
@@ -41,12 +35,10 @@
 		23855F4C148546D500B909C5 /* hred.png in Resources */ = {isa = PBXBuildFile; fileRef = 23855F42148546D500B909C5 /* hred.png */; };
 		23855F4D148546D500B909C5 /* hyellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 23855F43148546D500B909C5 /* hyellow.png */; };
 		23855F4E148546D500B909C5 /* wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 23855F44148546D500B909C5 /* wall.png */; };
-		23A415B21484C5FE0065D461 /* ProgrammingException.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A415B11484C5FE0065D461 /* ProgrammingException.m */; };
 		23A895501481595900D42AA1 /* arrow-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 23A8954C1481595900D42AA1 /* arrow-down.png */; };
 		23A895511481595900D42AA1 /* arrow-right.png in Resources */ = {isa = PBXBuildFile; fileRef = 23A8954D1481595900D42AA1 /* arrow-right.png */; };
 		23A895521481595900D42AA1 /* arrow-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 23A8954E1481595900D42AA1 /* arrow-up.png */; };
 		23A895531481595900D42AA1 /* arrow-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 23A8954F1481595900D42AA1 /* arrow-left.png */; };
-		23A89557148177AC00D42AA1 /* Piece.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A89556148177AC00D42AA1 /* Piece.m */; };
 		23FA7DB614A26BA700145794 /* NSString+Repeat.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FA7DB514A26BA700145794 /* NSString+Repeat.m */; };
 /* End PBXBuildFile section */
 
@@ -64,8 +56,6 @@
 		095B179514A2F5B000DEC541 /* BoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardView.h; sourceTree = "<group>"; };
 		095B179614A2F5B100DEC541 /* BoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardView.m; sourceTree = "<group>"; };
 		095B179D14A2F86200DEC541 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		230ACBE2148A987A002CA7E7 /* PieceBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieceBody.h; sourceTree = "<group>"; };
-		230ACBE3148A987A002CA7E7 /* PieceBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieceBody.m; sourceTree = "<group>"; };
 		2316EC19149BE11A0008B4BA /* Lib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lib.h; sourceTree = "<group>"; };
 		2316EC1A149BE11A0008B4BA /* Lib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lib.m; sourceTree = "<group>"; };
 		232601BF1456EE0300A42BC0 /* nakuron.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nakuron.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,18 +77,8 @@
 		232601EF1456EE0300A42BC0 /* nakuronTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "nakuronTests-Prefix.pch"; sourceTree = "<group>"; };
 		232601F01456EE0300A42BC0 /* nakuronTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nakuronTests.h; sourceTree = "<group>"; };
 		232601F21456EE0300A42BC0 /* nakuronTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nakuronTests.m; sourceTree = "<group>"; };
-		236D3DCE1481786C00168BF3 /* Ball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
-		236D3DCF1481786C00168BF3 /* Ball.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ball.m; sourceTree = "<group>"; };
-		236D3DD114817A0200168BF3 /* Hole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hole.h; sourceTree = "<group>"; };
-		236D3DD214817A0300168BF3 /* Hole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hole.m; sourceTree = "<group>"; };
-		236D3DD414817B6000168BF3 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
-		236D3DD514817B6000168BF3 /* Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Color.m; sourceTree = "<group>"; };
 		237CC17B147FE89400486081 /* Board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
 		237CC17C147FE89400486081 /* Board.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Board.m; sourceTree = "<group>"; };
-		237CC1D114801D2900486081 /* Wall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wall.h; sourceTree = "<group>"; };
-		237CC1D214801D2900486081 /* Wall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wall.m; sourceTree = "<group>"; };
-		237CC1D414801DD500486081 /* Empty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Empty.h; sourceTree = "<group>"; };
-		237CC1D514801DD500486081 /* Empty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Empty.m; sourceTree = "<group>"; };
 		23855F3B148546D400B909C5 /* bblue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bblue.png; sourceTree = "<group>"; };
 		23855F3C148546D400B909C5 /* bgreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgreen.png; sourceTree = "<group>"; };
 		23855F3D148546D400B909C5 /* bred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bred.png; sourceTree = "<group>"; };
@@ -109,14 +89,10 @@
 		23855F42148546D500B909C5 /* hred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hred.png; sourceTree = "<group>"; };
 		23855F43148546D500B909C5 /* hyellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hyellow.png; sourceTree = "<group>"; };
 		23855F44148546D500B909C5 /* wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wall.png; sourceTree = "<group>"; };
-		23A415B01484C5FE0065D461 /* ProgrammingException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgrammingException.h; sourceTree = "<group>"; };
-		23A415B11484C5FE0065D461 /* ProgrammingException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgrammingException.m; sourceTree = "<group>"; };
 		23A8954C1481595900D42AA1 /* arrow-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-down.png"; sourceTree = "<group>"; };
 		23A8954D1481595900D42AA1 /* arrow-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-right.png"; sourceTree = "<group>"; };
 		23A8954E1481595900D42AA1 /* arrow-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-up.png"; sourceTree = "<group>"; };
 		23A8954F1481595900D42AA1 /* arrow-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-left.png"; sourceTree = "<group>"; };
-		23A89555148177AC00D42AA1 /* Piece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Piece.h; sourceTree = "<group>"; };
-		23A89556148177AC00D42AA1 /* Piece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Piece.m; sourceTree = "<group>"; };
 		23FA7DB414A26BA700145794 /* NSString+Repeat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Repeat.h"; sourceTree = "<group>"; };
 		23FA7DB514A26BA700145794 /* NSString+Repeat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Repeat.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,29 +121,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		092F227A14A3521D00948CEB /* Old */ = {
-			isa = PBXGroup;
-			children = (
-				23A415B01484C5FE0065D461 /* ProgrammingException.h */,
-				23A415B11484C5FE0065D461 /* ProgrammingException.m */,
-				236D3DCE1481786C00168BF3 /* Ball.h */,
-				236D3DCF1481786C00168BF3 /* Ball.m */,
-				237CC1D114801D2900486081 /* Wall.h */,
-				237CC1D214801D2900486081 /* Wall.m */,
-				236D3DD114817A0200168BF3 /* Hole.h */,
-				236D3DD214817A0300168BF3 /* Hole.m */,
-				236D3DD414817B6000168BF3 /* Color.h */,
-				236D3DD514817B6000168BF3 /* Color.m */,
-				23A89555148177AC00D42AA1 /* Piece.h */,
-				23A89556148177AC00D42AA1 /* Piece.m */,
-				230ACBE2148A987A002CA7E7 /* PieceBody.h */,
-				230ACBE3148A987A002CA7E7 /* PieceBody.m */,
-				237CC1D414801DD500486081 /* Empty.h */,
-				237CC1D514801DD500486081 /* Empty.m */,
-			);
-			name = Old;
-			sourceTree = "<group>";
-		};
 		093CC89514A2F01F00DE084A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,7 +197,6 @@
 				237CC17C147FE89400486081 /* Board.m */,
 				095B179314A2F40C00DEC541 /* Resources */,
 				093CC89514A2F01F00DE084A /* Utilities */,
-				092F227A14A3521D00948CEB /* Old */,
 				232601CA1456EE0300A42BC0 /* Supporting Files */,
 			);
 			path = nakuron;
@@ -407,14 +359,6 @@
 				232601D41456EE0300A42BC0 /* nakuronAppDelegate.m in Sources */,
 				232601DA1456EE0300A42BC0 /* nakuronViewController.m in Sources */,
 				237CC17D147FE89400486081 /* Board.m in Sources */,
-				237CC1D314801D2900486081 /* Wall.m in Sources */,
-				237CC1D614801DD500486081 /* Empty.m in Sources */,
-				23A89557148177AC00D42AA1 /* Piece.m in Sources */,
-				236D3DD01481786C00168BF3 /* Ball.m in Sources */,
-				236D3DD314817A0300168BF3 /* Hole.m in Sources */,
-				236D3DD614817B6000168BF3 /* Color.m in Sources */,
-				23A415B21484C5FE0065D461 /* ProgrammingException.m in Sources */,
-				230ACBE4148A987A002CA7E7 /* PieceBody.m in Sources */,
 				2316EC1B149BE11A0008B4BA /* Lib.m in Sources */,
 				23FA7DB614A26BA700145794 /* NSString+Repeat.m in Sources */,
 				095B179714A2F5B100DEC541 /* BoardView.m in Sources */,
