@@ -4,7 +4,6 @@
 //
 
 #import "Board.h"
-#import "ProgrammingException.h"
 #import "Lib.h"
 
 @implementation Board
