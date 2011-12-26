@@ -152,7 +152,7 @@ CGRect makeCellRect(double width, double height, int x, int y) {
     }
 }
 
-- (void)moveObjectFromRow:(int)fromY Col:(int)fromX ToRow:(int)toY Col:(int)toX
+- (void)moveObjectFromRow:(int)fromY Col:(int)fromX ToRow:(int)toY Col:(int)toX Scored:(BOOL)scored
 {
     NSString *key = [NSString stringWithFormat:@"%d,%d", fromX, fromY];
     UIView *view = [boardObjects objectForKey:key];

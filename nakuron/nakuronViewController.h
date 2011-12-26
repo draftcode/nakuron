@@ -12,9 +12,12 @@
 @private
     int seed;
     Board *board;
+    int score;
     IBOutlet BoardView *boardView;
+    IBOutlet UILabel *scoreLabel;
 }
 
+- (IBAction)retry:(id)sender;
 - (IBAction)generate:(id)sender;
 - (IBAction)up:(id)sender;
 - (IBAction)left:(id)sender;

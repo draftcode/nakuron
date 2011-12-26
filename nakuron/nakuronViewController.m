@@ -14,6 +14,7 @@
 {
     [board release];
     [boardView release];
+    [scoreLabel release];
     [super dealloc];
 }
 
@@ -47,6 +48,8 @@
     board = nil;
     [boardView release];
     boardView = nil;
+    [scoreLabel release];
+    scoreLabel = nil;
     [super viewDidUnload];
 }
 
@@ -56,15 +59,31 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)moveObjectFromRow:(int)fromY Col:(int)fromX ToRow:(int)toY Col:(int)toX Scored:(BOOL)scored
+{
+    if (scored) {
+        score++;
+        scoreLabel.text = [NSString stringWithFormat:@"%d", score];
+    }
+}
+
 #pragma mark - Actions
+
+- (IBAction)retry:(id)sender {
+    [sender resignFirstResponder];
+    [board release];
+    score = 0;
+    scoreLabel.text = [NSString stringWithFormat:@"%d", score];
+    board = [[Board alloc] initWithSize:8 seed:seed colors:4];
+    [board addObserver:self];
+    boardView.board = board;
+    [boardView setNeedsDisplay];
+}
 
 - (IBAction)generate:(id)sender {
     [sender resignFirstResponder];
     seed = arc4random() & 0x7FFFFFFF;
-    [board release];
-    board = [[Board alloc] initWithSize:8 seed:seed colors:4];
-    boardView.board = board;
-    [boardView setNeedsDisplay];
+    [self retry:sender];
 }
 
 - (IBAction)up:(id)sender {

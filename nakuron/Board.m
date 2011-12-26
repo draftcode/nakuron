@@ -130,7 +130,7 @@
 
 #pragma mark - Movements
 
-- (void)moveObjectFromRow:(int)fromY Col:(int)fromX ToRow:(int)toY Col:(int)toX
+- (void)moveObjectFromRow:(int)fromY Col:(int)fromX ToRow:(int)toY Col:(int)toX Scored:(bool)scored
 {
     int state = [self getStateAtRow:fromY Col:fromX];
     
@@ -140,8 +140,8 @@
     [self setState:-1 Row:fromY Col:fromX];
     
     for (id observer in observers) {
-        if ([observer respondsToSelector:@selector(moveObjectFromRow:Col:ToRow:Col:)]) {
-            [observer moveObjectFromRow:fromY Col:fromX ToRow:toY Col:toX];
+        if ([observer respondsToSelector:@selector(moveObjectFromRow:Col:ToRow:Col:Scored:)]) {
+            [observer moveObjectFromRow:fromY Col:fromX ToRow:toY Col:toX Scored:scored];
         }
     }
 }
@@ -167,12 +167,14 @@
                         if (collideState != -1) break;
                     }
                     
+                    bool scored = NO;
                     int moveTo = -2;
                     if (collideIdx == -1 || collideIdx == boardSize) {
                         int holeState = [self getHoleAtDirection:dir Index:x];
                         if (holeState == 0) {
                             moveTo = collideIdx + dy;
                         } else {
+                            scored = (state == holeState);
                             moveTo = collideIdx;
                         }
                     } else {
@@ -180,7 +182,7 @@
                     }
                     
                     if (moveTo != y) {
-                        [self moveObjectFromRow:y Col:x ToRow:moveTo Col:x];
+                        [self moveObjectFromRow:y Col:x ToRow:moveTo Col:x Scored:scored];
                     }
 
                 }
@@ -198,12 +200,14 @@
                         if (collideState != -1) break;
                     }
                     
+                    BOOL scored = NO;
                     int moveTo = -2;
                     if (collideIdx == -1 || collideIdx == boardSize) {
                         int holeState = [self getHoleAtDirection:dir Index:y];
                         if (holeState == 0) {
                             moveTo = collideIdx + dx;
                         } else {
+                            scored = (state == holeState);
                             moveTo = collideIdx;
                         }
                     } else {
@@ -211,7 +215,7 @@
                     }
                     
                     if (moveTo != x) {
-                        [self moveObjectFromRow:y Col:x ToRow:y Col:moveTo];
+                        [self moveObjectFromRow:y Col:x ToRow:y Col:moveTo Scored:scored];
                     }
                     
                 }

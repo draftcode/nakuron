@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		095B179714A2F5B100DEC541 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 095B179614A2F5B100DEC541 /* BoardView.m */; };
 		095B179E14A2F86200DEC541 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 095B179C14A2F86200DEC541 /* MainWindow.xib */; };
+		09972E2B14A7889900C6D296 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09972E2A14A7889900C6D296 /* AudioToolbox.framework */; };
 		2316EC1B149BE11A0008B4BA /* Lib.m in Sources */ = {isa = PBXBuildFile; fileRef = 2316EC1A149BE11A0008B4BA /* Lib.m */; };
 		232601C41456EE0300A42BC0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232601C31456EE0300A42BC0 /* UIKit.framework */; };
 		232601C61456EE0300A42BC0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232601C51456EE0300A42BC0 /* Foundation.framework */; };
@@ -55,6 +56,7 @@
 		095B179514A2F5B000DEC541 /* BoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardView.h; sourceTree = "<group>"; };
 		095B179614A2F5B100DEC541 /* BoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardView.m; sourceTree = "<group>"; };
 		095B179D14A2F86200DEC541 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		09972E2A14A7889900C6D296 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		2316EC19149BE11A0008B4BA /* Lib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lib.h; sourceTree = "<group>"; };
 		2316EC1A149BE11A0008B4BA /* Lib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lib.m; sourceTree = "<group>"; };
 		232601BF1456EE0300A42BC0 /* nakuron.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nakuron.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09972E2B14A7889900C6D296 /* AudioToolbox.framework in Frameworks */,
 				232601C41456EE0300A42BC0 /* UIKit.framework in Frameworks */,
 				232601C61456EE0300A42BC0 /* Foundation.framework in Frameworks */,
 				232601C81456EE0300A42BC0 /* CoreGraphics.framework in Frameworks */,
@@ -170,6 +173,7 @@
 		232601C21456EE0300A42BC0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				09972E2A14A7889900C6D296 /* AudioToolbox.framework */,
 				232601C31456EE0300A42BC0 /* UIKit.framework */,
 				232601C51456EE0300A42BC0 /* Foundation.framework */,
 				232601C71456EE0300A42BC0 /* CoreGraphics.framework */,
@@ -425,7 +429,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -439,7 +443,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 			};
