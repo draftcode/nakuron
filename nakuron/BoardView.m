@@ -9,6 +9,7 @@
 #import "BoardView.h"
 #import "Board.h"
 #import <QuartzCore/QuartzCore.h>
+#import <AudioToolbox/AudioServices.h>
 
 @interface CircleView : UIView {
     UIColor *color;
@@ -49,6 +50,10 @@
 - (void)addCellsSubView;
 @end
 
+CGRect makeCellRect(double width, double height, int x, int y) {
+    return CGRectMake(x * width + 1, y * height + 1, width - 2, height - 2);
+}
+
 @implementation BoardView
 @synthesize colors;
 
@@ -58,8 +63,8 @@
     board = nil;
     [colors release];
     colors = nil;
-    [boardImages release];
-    boardImages = nil;
+    [boardObjects release];
+    boardObjects = nil;
     [super dealloc];
 }
 
@@ -82,8 +87,8 @@
         [subview removeFromSuperview];
     }
     
-    [boardImages release];
-    boardImages = nil;
+    [boardObjects release];
+    boardObjects = nil;
     
     [self addCellsSubView];
 }
@@ -96,15 +101,12 @@
         double cellHeight = rect.size.height / (boardSize+2);
         double cellWidth = rect.size.width / (boardSize+2);
         
-        boardImages = [[NSMutableDictionary dictionaryWithCapacity:boardSize*boardSize] retain];
+        boardObjects = [[NSMutableDictionary dictionaryWithCapacity:boardSize*boardSize] retain];
         for (int y = 0; y < boardSize; y++) {
             for (int x = 0; x < boardSize; x++) {
                 int cellState = [board getStateAtRow:y Col:x];
                 if (cellState != -1) {
-                    CGRect frame = CGRectMake((x+1)*cellWidth + 1,
-                                              (y+1)*cellHeight + 1,
-                                              cellWidth - 2,
-                                              cellHeight - 2);
+                    CGRect frame = makeCellRect(cellWidth, cellHeight, x+1, y+1);
                     UIView *view = nil;
                     if (cellState == 0) {
                         view = [[UIView alloc] initWithFrame:frame];
@@ -117,7 +119,7 @@
                     }
                     
                     [self addSubview:view];
-                    [boardImages setObject:view forKey:[NSString stringWithFormat:@"%d,%d", x, y]];
+                    [boardObjects setObject:view forKey:[NSString stringWithFormat:@"%d,%d", x, y]];
                     [view release];
                 }
             }
@@ -131,10 +133,9 @@
         for (int dirIdx = 0; dirIdx < 4; dirIdx++) {
             for (int i = 0; i < boardSize; i++) {
                 int cellState = [board getHoleAtDirection:dirs[dirIdx] Index:i];
-                CGRect frame = CGRectMake((xBegin[dirIdx]+dx[dirIdx]*i)*cellWidth + 1,
-                                          (yBegin[dirIdx]+dy[dirIdx]*i)*cellHeight + 1,
-                                          cellWidth - 2,
-                                          cellHeight - 2);
+                CGRect frame = makeCellRect(cellWidth, cellHeight,
+                                            xBegin[dirIdx]+dx[dirIdx]*i,
+                                            yBegin[dirIdx]+dy[dirIdx]*i);
                 UIColor *color = nil;
                 if (cellState == 0) {
                     color = [UIColor blackColor];
@@ -142,10 +143,10 @@
                     color = [colors objectAtIndex:cellState-1];
                 }
                 
-                UIView *image = [[UIView alloc] initWithFrame:frame];
-                [image setBackgroundColor:color];
-                [self addSubview:image];
-                [image release];
+                UIView *view = [[UIView alloc] initWithFrame:frame];
+                [view setBackgroundColor:color];
+                [self addSubview:view];
+                [view release];
             }
         }
     }
@@ -154,26 +155,22 @@
 - (void)moveObjectFromRow:(int)fromY Col:(int)fromX ToRow:(int)toY Col:(int)toX
 {
     NSString *key = [NSString stringWithFormat:@"%d,%d", fromX, fromY];
-    UIImageView *image = [boardImages objectForKey:key];
+    UIView *view = [boardObjects objectForKey:key];
 
     int boardSize = board.boardSize;
     CGRect rect = [self frame];
     double cellHeight = rect.size.height / (boardSize+2);
     double cellWidth = rect.size.width / (boardSize+2);
-    CGRect frame = CGRectMake((toX+1)*cellWidth + 1,
-                              (toY+1)*cellHeight + 1,
-                              cellWidth - 2,
-                              cellHeight - 2);
     
+    CGRect frame = makeCellRect(cellWidth, cellHeight, toX+1, toY+1);    
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
     [UIView setAnimationDuration:0.07*(abs(fromY-toY)+abs(fromX-toX))];
-    
-    image.Frame = frame;
-    
+    view.Frame = frame;
     [UIView commitAnimations];
+    AudioServicesPlaySystemSound(1003);
 
-    [boardImages setObject:image forKey:[NSString stringWithFormat:@"%d,%d", toX, toY]];
-    [boardImages removeObjectForKey:key];
+    [boardObjects setObject:view forKey:[NSString stringWithFormat:@"%d,%d", toX, toY]];
+    [boardObjects removeObjectForKey:key];
 }
 @end

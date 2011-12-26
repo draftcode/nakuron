@@ -12,7 +12,7 @@
 
 @interface BoardView : UIView {
     Board *board;
-    NSMutableDictionary *boardImages;
+    NSMutableDictionary *boardObjects;
     NSArray *colors;
 }
 
